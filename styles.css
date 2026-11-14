@@ -217,7 +217,18 @@ ol{padding:0;list-style:none}
 .work-tabs button{height:36px;padding:0 16px;border:0;border-radius:999px;background:none;color:#5c5c5c;transition:background-color .35s ease,color .35s ease}
 .work-tabs button:hover{color:var(--fg)}
 .work-tabs button[aria-selected="true"]{background:linear-gradient(180deg,#363636,#0b0b0b);color:#fff}
-.work-x{justify-self:end;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--rule);border-radius:50%;background:#fff}
+.work-end{justify-self:end;display:flex;align-items:center;gap:10px}
+/* the live prototype link: Monarch green, right before the close button */
+.work-live{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 8px 0 20px;border-radius:999px;background:var(--lime);color:#111;font:500 14px/1 var(--sans);text-decoration:none;white-space:nowrap;
+  box-shadow:inset 0 0 0 1px rgba(17,17,17,.08);transition:background-color .35s var(--ease),box-shadow .35s var(--ease),translate .35s var(--ease)}
+.work-live[hidden]{display:none}
+.work-live i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#111;color:var(--lime);font-style:normal;font-size:13px;transition:transform .45s var(--ease)}
+.work-live:hover{background:#b4f23f;box-shadow:inset 0 0 0 1px rgba(17,17,17,.12),0 10px 22px -12px rgba(80,120,0,.55);translate:0 -1px}
+.work-live:hover i{transform:translate(2px,-2px) rotate(0deg)}
+.work-live:active{translate:0 0}
+.work-live:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+@media (max-width:480px){.work-live span{display:none}.work-live{padding:0 7px}}
+.work-x{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--rule);border-radius:50%;background:#fff}
 .work-x svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;transition:transform .45s var(--ease)}
 .work-x:hover svg{transform:rotate(90deg)}
 
@@ -260,6 +271,8 @@ ol{padding:0;list-style:none}
 @media (prefers-reduced-motion:reduce){.w-shot,.w-view i{transition:none}}
 .rv{opacity:0;translate:0 28px;transition:opacity .8s ease calc(var(--d,0) * 90ms),translate 1s var(--ease) calc(var(--d,0) * 90ms)}
 .rv.seen{opacity:1;translate:0 0}
+/* service page cards wait for the view to finish opening (or a service switch to finish) before their one-by-one entrance */
+.work:not(.ready) .w-grid .rv,.work.swap .w-grid .rv{opacity:0;translate:0 28px;transition-delay:0s!important}
 
 
 
@@ -337,12 +350,10 @@ ol{padding:0;list-style:none}
 .b-win{overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 30px 60px -34px rgba(17,17,17,.45),0 0 0 1px rgba(17,17,17,.06)}
 .b-chrome{display:flex;align-items:center;gap:14px;height:38px;padding:0 10px 0 14px;border-bottom:1px solid var(--hair);background:#f7f7f5}
 .b-chrome>span{display:flex;gap:7px}
+.b-chrome::after{content:"";flex:none;width:41px}   /* balances the three dots, so the address sits centred */
 .b-chrome>span i{width:9px;height:9px;border-radius:50%;background:#d6d6d4}
 .b-chrome em{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;font:500 12px/1 var(--sans);font-style:normal;color:var(--fg)}
 .b-chrome em b{font-weight:400;color:#8a8a8a}
-.b-chrome a{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 12px;border-radius:999px;font:500 12px/1 var(--sans);color:var(--fg);transition:background-color .25s}
-.b-chrome a:hover{background:#ebebe8}
-.b-chrome a:focus-visible{outline:2px solid var(--fg);outline-offset:1px}
 .b-view{position:relative;overflow:hidden;background:#fff var(--poster) top center/100% auto no-repeat}   /* the first page's screenshot until the live page paints over it */
 .b-bench.is-phone .b-view{background-image:none}
 .b-view iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0}
@@ -365,7 +376,7 @@ ol{padding:0;list-style:none}
 .s-four button{display:grid;gap:8px;width:100%;padding:0;border:0;background:none;text-align:left;color:var(--fg);cursor:pointer}
 .s-four img{display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 0 0 1px rgba(17,17,17,.1);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .25s}
 .s-four button:hover img{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(17,17,17,.18),0 14px 24px -16px rgba(17,17,17,.45)}
-.s-four [aria-pressed="true"] img{box-shadow:0 0 0 2px var(--fg)}
+.s-four [aria-pressed="true"] img,.s-four [aria-pressed="true"]:hover img{box-shadow:0 0 0 2px var(--lime),0 0 0 3px rgba(17,17,17,.07),0 14px 28px -14px rgba(90,140,0,.6)}
 .s-four span{overflow:hidden;font:500 12.5px/1.25 var(--sans);text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
 .s-four [aria-pressed="true"] span{color:var(--fg)}
 .s-four button:focus-visible{outline:2px solid var(--fg);outline-offset:3px;border-radius:8px}
@@ -396,7 +407,7 @@ ol{padding:0;list-style:none}
   .w-study.min .s-tab{opacity:1;visibility:visible;transition:opacity .4s ease .45s,visibility 0s .45s,background-color .25s}
   /* with the study hidden the four screens stand in a column beside the prototype, so it can use the full height */
   .w-study.min .s-live{display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,14vw,230px);grid-template-rows:minmax(0,1fr);gap:clamp(14px,1.4vw,22px)}
-  .w-study.min .s-four{grid-template-columns:1fr;align-content:start;gap:14px;min-height:0;overflow-y:auto;scrollbar-width:none}
+  .w-study.min .s-four{grid-template-columns:1fr;align-content:start;gap:14px;min-height:0;overflow-y:auto;scrollbar-width:none;padding:8px 10px 20px;margin:-8px -10px 0}
   .w-study.min .s-four::-webkit-scrollbar{display:none}
   .s-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 0 8px 22px;scrollbar-width:none;contain:paint}
   .s-scroll::-webkit-scrollbar{display:none}
@@ -445,7 +456,7 @@ ol{padding:0;list-style:none}
 .s-fly{position:absolute;inset:0;z-index:4;pointer-events:none}
 .s-fly button{position:absolute;display:grid;gap:8px;margin:0;padding:0;border:0;background:none;text-align:left;color:var(--fg);transform-origin:0 0;will-change:transform}
 .s-fly img{display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 0 0 1px rgba(17,17,17,.1),0 18px 34px -18px rgba(17,17,17,.4)}
-.s-fly [aria-pressed="true"] img{box-shadow:0 0 0 2px var(--fg),0 18px 34px -18px rgba(17,17,17,.4)}
+.s-fly [aria-pressed="true"] img{box-shadow:0 0 0 2px var(--lime),0 0 0 3px rgba(17,17,17,.07),0 14px 28px -14px rgba(90,140,0,.6)}
 .s-fly span{overflow:hidden;font:500 12.5px/1.25 var(--sans);text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
 /* settled: the work view is open and still. What is under it is not drawn, the clip masks are gone, and the
    border photo stops breathing (see settleSoon in work.js) */

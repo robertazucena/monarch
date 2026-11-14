@@ -174,7 +174,7 @@
   const benchHTML = (id, d) => `<div class="b-bench" data-bench="${id}">
       <div class="b-stage">
         <div class="b-win">
-          <div class="b-chrome"><span aria-hidden="true"><i></i><i></i><i></i></span><em>${d.name.toLowerCase()}<b>/</b></em><a href="prototype/${id}/${d.pages[0][1]}" target="_blank" rel="noopener">Open <span aria-hidden="true">↗</span></a></div>
+          <div class="b-chrome"><span aria-hidden="true"><i></i><i></i><i></i></span><em>${d.name.toLowerCase()}<b>/</b></em></div>
           <div class="b-view" style="--poster:url('work/${id}-0.webp')"><iframe title="${d.name}, live prototype: ${d.pages[0][0]}" src="prototype/${id}/${d.pages[0][1]}"></iframe>
             <button type="button" class="b-shield"><span>Tap to try the prototype</span></button></div>
         </div>
@@ -235,6 +235,7 @@
         </div>
       </footer>`;
   };
+  const live = (url, name) => { const a = $(".work-live", work); a.href = url; a.setAttribute("aria-label", `Open the ${name} live prototype in a new tab`); };
   let proj = null, reveal = 0;   /* reveal: the timer that unfolds a project's study */
   const render = (k, id, dry) => {
     const ids = BY[k], s = SV[k];
@@ -250,6 +251,9 @@
     proj = id || null;
     inner.innerHTML = markup;
     /* the top-left button: back to the services (closes the view), or, inside a project, back to its service */
+    /* "Open live prototype": in the top bar, just before the close button, on project pages only */
+    $(".work-live", work).hidden = !id;
+    if (id) live(`prototype/${id}/${S[id].pages[0][1]}`, S[id].name);
     const wb = $(".work-back", work);
     wb.innerHTML = `<i aria-hidden="true">←</i> ${id ? "All " + s.name : "Services"}`;
     wb.setAttribute("aria-label", id ? `All ${s.name} projects` : "Back to the services");
@@ -269,8 +273,22 @@
     if (io) io.disconnect();
     const els = $$(".rv", inner);
     if (still || !("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("seen")); return; }
-    io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("seen"); io.unobserve(e.target); } }),
-      { root: scroll, threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    /* project cards arrive one by one: the first screenful queues up after the intro (eyebrow, title, line), and
+       cards scrolled into view later follow each other in reading order instead of landing in pairs */
+    let first = true;
+    io = new IntersectionObserver(es => {
+      let q = 0;
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        const t = e.target;
+        if (t.closest(".w-grid")) {
+          t.style.transitionDelay = `${(first ? 620 : 0) + q++ * 160}ms`;
+          t.addEventListener("transitionend", () => { t.style.transitionDelay = ""; }, { once: true });
+        }
+        t.classList.add("seen"); io.unobserve(t);
+      });
+      first = false;
+    }, { root: scroll, threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     els.forEach(e => io.observe(e));
   };
 
@@ -463,7 +481,7 @@
       if (fr.getAttribute("src") !== url) fr.setAttribute("src", url);
       fr.title = `${d.name}, live prototype: ${p[0]}`;
       $(".b-chrome b", box).textContent = "/" + p[1].replace("index.html", "").replace(/\.html.*$/, "");
-      $(".b-chrome a", box).href = url;
+      live(url, d.name);
       $("[data-bpage]", box).textContent = p[0];
       $$("[data-shot]", inner).forEach(b => b.setAttribute("aria-pressed", +b.dataset.shot === n));
     }
