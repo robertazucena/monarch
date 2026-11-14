@@ -9,8 +9,9 @@ studio.html         Studio
 contact.html        Contact
 styles.css          Site styles      studio.css  Inner-page styles
 preload.js          Preloader        hero.js     Reel, menu, scroll steps
-work.js             Concept-study work view   studio.js / contact.js  Inner pages
-work/               Study screens (WebP)
+work.js             Work view: projects by service   studio.js / contact.js  Inner pages
+work/               Project screens (WebP)
+prototype/<id>/     Live project prototypes (DOST, Sentron, DepEd, Howely, DFA, Nowhere, Courtly, Steady)
 favicon.svg
 ```
 

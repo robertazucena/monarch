@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Announcements · Department of Science and Technology (concept)</title>
+<meta name="description" content="Open calls for proposals and scholarships, guidelines and public notices from DOST.">
+<meta name="theme-color" content="#0a2742">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="issuances">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/announcements.webp" width="1600" height="1067" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Announcements</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">Calls, guidelines and public notices</h1>
+      <p class="ph__p">Calls for proposals and scholarship applications, program guidelines and briefers, and notices to the public, as DOST lists them.</p>
+      
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="issH" style="padding-top:44px">
+    <div class="wrap">
+      <h2 class="sr" id="issH">Announcement list</h2>
+      <div class="bar bar--iss">
+        <div class="seg" role="tablist" aria-label="Announcement type" id="issTabs"></div>
+        <label class="iss__q"><svg aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search announcements</span><input type="search" id="issQ" placeholder="Keyword, e.g. MECO-TECO or water" autocomplete="off"></label>
+      </div>
+      <p class="count" id="issCount" aria-live="polite"></p>
+      <ul class="isss isss--page" id="issList" role="tabpanel"></ul>
+      <div style="margin-top:28px"><div class="callout"><svg><use href="#i-info"/></svg><p>Each announcement opens on dost.gov.ph, where the full call, deadlines and forms are kept.</p></div></div>
+      <div class="acts" style="margin-top:14px"><a class="btn btn--ghost" href="https://www.dost.gov.ph/knowledge-resources/2014-04-27-01-59-53/guidelines.html" target="_blank" rel="noopener">Guidelines<svg><use href="#i-out"/></svg></a><a class="btn btn--ghost" href="https://www.dost.gov.ph/transparency/admin-and-finance/issuances.html" target="_blank" rel="noopener">DOST issuances<svg><use href="#i-out"/></svg></a></div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="relH">
+    <div class="wrap">
+      <h2 class="h2" id="relH">Related</h2>
+      <div class="grid3" style="margin-top:20px"><a class="lc" href="programs.html#grants"><span class="card__ic card__ic--royal"><svg><use href="#i-book"/></svg></span><span class="lc__h">Research grants</span><span class="lc__p">GIA, Balik Scientist and JSPS.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="programs.html#scholarships"><span class="card__ic card__ic--green"><svg><use href="#i-cap"/></svg></span><span class="lc__h">Scholarships</span><span class="lc__p">DOST-SEI programs.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="news.html"><span class="card__ic card__ic--amber"><svg><use href="#i-chat"/></svg></span><span class="lc__h">News</span><span class="lc__p">Stories from the regions.</span><svg class=lc__go><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

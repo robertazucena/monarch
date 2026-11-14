@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<script src="frame-top.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courtly — Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<noscript><style>.preloader{display:none !important;} .sidebar,.main-panel{opacity:1 !important; transform:none !important;}</style></noscript>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 0 0 20M2 12h20M4 6.5c2.5 2 5 3 8 3s5.5-1 8-3M4 17.5c2.5-2 5-3 8-3s5.5 1 8 3"/></svg>
+    </div>
+    <span class="brand-name">Courtly</span>
+  </div>
+  <div class="preloader-icons">
+    <div class="preloader-icon-circle" title="Basketball">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 0 0 20M2 12h20M4 6.5c2.5 2 5 3 8 3s5.5-1 8-3M4 17.5c2.5-2 5-3 8-3s5.5 1 8 3"/></svg>
+    </div>
+    <div class="preloader-icon-circle" title="Volleyball">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 3 17 0 20M6 4c2 4 2 12 0 16M18 4c-2 4-2 12 0 16"/></svg>
+    </div>
+    <div class="preloader-icon-circle" title="Tennis Racket">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M4 7c3 2 3 8 0 10M20 7c-3 2-3 8 0 10"/></svg>
+    </div>
+    <div class="preloader-icon-circle" title="Badminton">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M9.5 7L5 20h14L14.5 7z"/><path d="M7.6 13.5h8.8M6.6 16.5h10.8"/></svg>
+    </div>
+    <div class="preloader-icon-circle" title="Futsal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+    </div>
+  </div>
+  <div class="preloader-status">
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    <p>Warming up the courts...</p>
+  </div>
+</div>
+
+<div class="sidebar-overlay" data-menu-close></div>
+
+<button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+  <span class="menu-toggle-bar"></span>
+  <span class="menu-toggle-bar"></span>
+  <span class="menu-toggle-bar"></span>
+</button>
+
+<!-- Mobile top bar -->
+<div class="mobile-topbar">
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 0 0 20M2 12h20M4 6.5c2.5 2 5 3 8 3s5.5-1 8-3M4 17.5c2.5-2 5-3 8-3s5.5 1 8 3"/></svg>
+    </div>
+    <span class="brand-name">Courtly</span>
+  </div>
+</div>
+
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 0 0 20M2 12h20M4 6.5c2.5 2 5 3 8 3s5.5-1 8-3M4 17.5c2.5-2 5-3 8-3s5.5 1 8 3"/></svg>
+        </div>
+        <span class="brand-name">Courtly</span>
+      </div>
+      <nav class="nav-list">
+        <a href="index.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Dashboard
+        </a>
+        <a href="court-details.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search Courts
+        </a>
+        <a href="booking.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Bookings
+        </a>
+        <a href="community.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Community
+        </a>
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </a>
+      </nav>
+    </div>
+    <div class="sidebar-pro-card">
+      <h4>Go Premium</h4>
+      <p>Get 15% off all courts, early priority booking &amp; exclusive tournaments.</p>
+      <button class="btn-upgrade">Upgrade Now</button>
+    </div>
+  </aside>
+
+  <!-- Main panel -->
+  <div class="main-panel">
+    <header class="header-bar">
+      <div class="greeting">
+        <p>Welcome back</p>
+        <p>Good morning, Richard</p>
+      </div>
+      <div class="header-actions">
+        <div class="search-bar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Find a court near you...">
+        </div>
+        <div class="header-avatar">
+          <img src="photos/d256b9799c_photo-1580051706353-f037886dedac.webp" alt="Richard Young">
+        </div>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <div class="content-left">
+        <section>
+          <p class="section-title">Favorite Sports</p>
+          <div class="sport-pills-row">
+            <button class="sport-pill active" data-sport="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>All</button>
+            <button class="sport-pill" data-sport="basketball">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 0 0 20M2 12h20M4 6.5c2.5 2 5 3 8 3s5.5-1 8-3M4 17.5c2.5-2 5-3 8-3s5.5 1 8 3"/></svg>
+              Basketball
+            </button>
+            <button class="sport-pill" data-sport="volleyball">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 3 17 0 20M6 4c2 4 2 12 0 16M18 4c-2 4-2 12 0 16"/></svg>
+              Volleyball
+            </button>
+            <button class="sport-pill" data-sport="futsal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+              Futsal
+            </button>
+            <button class="sport-pill" data-sport="badminton">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+              Badminton
+            </button>
+            <button class="sport-pill" data-sport="tennis">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+              Tennis
+            </button>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header-row">
+            <h2>Nearby Courts <span class="count" id="courts-count"></span></h2>
+            <a href="court-details.html" class="link-green">See All</a>
+          </div>
+          <div class="courts-grid" id="courts-grid">
+            <a href="court-details.html" class="court-card" data-sports="basketball volleyball futsal" data-render="basketball1">
+              <img class="court-image" src="photos/6bf59beb19_photo-1572454181157-0b40dd7667fe.webp" alt="Downtown Sports Center" loading="lazy">
+              <div class="court-info">
+                <h3>Downtown Sports Center</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>1.2 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.8</span>
+                  </div>
+                  <span class="court-price">$25/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="futsal tennis" data-render="futsal1">
+              <img class="court-image" src="photos/484e909927_photo-1763775594018-4a84eeadd83d.webp" alt="Arena Green Valley" loading="lazy">
+              <div class="court-info">
+                <h3>Arena Green Valley</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>3.4 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.6</span>
+                  </div>
+                  <span class="court-price">$20/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="badminton" data-render="badminton1">
+              <img class="court-image" src="photos/e82a317bb0_photo-1764173040188-8194f7738e49.webp" alt="Olympia Badminton Hall" loading="lazy">
+              <div class="court-info">
+                <h3>Olympia Badminton Hall</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>2.1 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.9</span>
+                  </div>
+                  <span class="court-price">$18/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="volleyball" data-render="volleyball1">
+              <img class="court-image" src="photos/bac7d4a185_photo-1612872087720-bb876e2e67d1.webp" alt="Beach Arena West" loading="lazy">
+              <div class="court-info">
+                <h3>Beach Arena West</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>4.0 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.7</span>
+                  </div>
+                  <span class="court-price">$22/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="basketball futsal" data-render="basketball2">
+              <img class="court-image" src="photos/6f428b82e1_photo-1546519638-68e109498ffc.webp" alt="City Indoor Arena" loading="lazy">
+              <div class="court-info">
+                <h3>City Indoor Arena</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>2.8 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.5</span>
+                  </div>
+                  <span class="court-price">$24/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="tennis" data-render="tennis1">
+              <img class="court-image" src="photos/13e8acc6b1_photo-1604259011171-2343696f776b.webp" alt="Clay Club Riverside" loading="lazy">
+              <div class="court-info">
+                <h3>Clay Club Riverside</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5.1 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.8</span>
+                  </div>
+                  <span class="court-price">$28/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="basketball" data-render="basketball3">
+              <img class="court-image" src="photos/88b09eae61_photo-1540712260984-d701320a8909.webp" alt="Harbor Hoops Park" loading="lazy">
+              <div class="court-info">
+                <h3>Harbor Hoops Park</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>3.9 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.4</span>
+                  </div>
+                  <span class="court-price">$15/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="badminton" data-render="badminton2">
+              <img class="court-image" src="photos/a47dd5a9a4_photo-1780233689933-c2f805b3ed36.webp" alt="Skyline Badminton Club" loading="lazy">
+              <div class="court-info">
+                <h3>Skyline Badminton Club</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>3.0 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.7</span>
+                  </div>
+                  <span class="court-price">$16/hr</span>
+                </div>
+              </div>
+            </a>
+            <a href="court-details.html" class="court-card" data-sports="volleyball" data-render="volleyball2">
+              <img class="court-image" src="photos/c35e40c2db_photo-1601512986351-9b0e01780eef.webp" alt="Northgate Volleyball Hall" loading="lazy">
+              <div class="court-info">
+                <h3>Northgate Volleyball Hall</h3>
+                <div class="court-meta-row">
+                  <div class="dist-rate">
+                    <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>6.2 km</span>
+                    <span class="rating"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>4.6</span>
+                  </div>
+                  <span class="court-price">$20/hr</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <nav class="pager" id="pager" aria-label="Nearby courts pages"></nav>
+          <p class="courts-empty" id="courts-empty" hidden>No courts nearby for this sport yet. Try another one.</p>
+        </section>
+
+        <section class="stats-row">
+          <div class="stat-box">
+            <p class="label">Total Bookings This Month</p>
+            <p class="value">12 Sessions</p>
+            <p class="sub green">+4 more than last month</p>
+          </div>
+          <div class="stat-box amber">
+            <p class="label">Activity Streak</p>
+            <p class="value">3 Weeks</p>
+            <div class="streak-bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+            <p class="sub">One more week unlocks your next reward</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="content-right">
+        <section>
+          <p class="section-title">Upcoming Booking</p>
+          <div class="upcoming-card">
+            <div class="booking-icon-wrap icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 0 0 20M2 12h20M4 6.5c2.5 2 5 3 8 3s5.5-1 8-3M4 17.5c2.5-2 5-3 8-3s5.5 1 8 3"/></svg>
+            </div>
+            <div class="booking-details">
+              <span class="tag">Basketball</span>
+              <span class="title">Downtown Sports - Court A</span>
+              <span class="time">Sat, Oct 10 • 7:00 PM – 8:00 PM</span>
+              <span class="eta">Tomorrow</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <p class="section-title">Previous Booking</p>
+          <div class="previous-list">
+            <div class="previous-card">
+              <div class="booking-icon-wrap icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 3 17 0 20M6 4c2 4 2 12 0 16M18 4c-2 4-2 12 0 16"/></svg>
+              </div>
+              <div class="booking-details">
+                <span class="tag">Volleyball</span>
+                <span class="title">Arena Green Valley - Court B</span>
+                <span class="time">Fri, Oct 2 • 6:00 PM – 7:30 PM</span>
+              </div>
+            </div>
+            <div class="previous-card">
+              <div class="booking-icon-wrap icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+              </div>
+              <div class="booking-details">
+                <span class="tag">Futsal</span>
+                <span class="title">City Arena - Court 3</span>
+                <span class="time">Tue, Sep 22 • 8:30 PM – 10:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="matchmaking-banner">
+          <h4>Next Match Matchmaking</h4>
+          <p>2 slots are open for basketball games tonight near your location. Join existing group?</p>
+          <div class="action-row">
+            <a href="community.html" class="btn btn-primary">Join Game</a>
+            <button class="btn btn-outline">Later</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>© 2026 Courtly. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Help Center</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

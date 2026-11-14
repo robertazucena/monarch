@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consular Services · Department of Foreign Affairs (concept)</title>
+<meta name="description" content="Every DFA consular service in one place: passports, apostille, visas and help for Filipinos abroad, with fees and processing times.">
+<meta name="theme-color" content="#0b1e3b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="services">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/services.webp" width="1600" height="1068" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Consular Services</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">Every service, its fees and how long it takes</h1>
+      <p class="ph__p">Start here to find the right service, check what to bring and book through the official portal. All appointments are free.</p>
+      <div class="ph__acts"><a class="btn btn--gold" href="https://www.passport.gov.ph/" target="_blank" rel="noopener">Book a passport appointment<svg><use href="#i-out"/></svg></a><a class="btn btn--line" href="#guide">Check requirements</a></div><dl class="ph__facts"><div><dt>Passport</dt><dd>from ₱950</dd></div><div><dt>Apostille</dt><dd>₱100 per document</dd></div><div><dt>Assistance to Nationals</dt><dd>Free, 24/7</dd></div><div><dt>Appointments</dt><dd>Always free</dd></div></dl>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="allH">
+    <div class="wrap">
+      <div class="sec__head"><h2 class="sec__h" id="allH">What do you need to do?</h2></div>
+      <div class="grid3" style="margin-top:24px" data-services></div>
+    </div>
+  </section>
+  <section class="sec" id="guide" aria-labelledby="guideH">
+    <div class="wrap tools__grid">
+      <div>
+        <div class="sec__head" style="margin-bottom:20px"><h2 class="sec__h" id="guideH">Requirements and fees</h2><p class="sec__p">Pick a service, tick off documents as you gather them, then book.</p></div>
+        <div class="panel" id="assistant">
+          <div class="seg" role="tablist" aria-label="Consular service">
+            <button type="button" role="tab" id="tab-new_passport" aria-controls="svcBox" aria-selected="true" data-svc="new_passport">New Passport</button>
+            <button type="button" role="tab" id="tab-renewal" aria-controls="svcBox" aria-selected="false" tabindex="-1" data-svc="renewal">Passport Renewal</button>
+            <button type="button" role="tab" id="tab-apostille" aria-controls="svcBox" aria-selected="false" tabindex="-1" data-svc="apostille">Apostille</button>
+            <button type="button" role="tab" id="tab-lost_passport" aria-controls="svcBox" aria-selected="false" tabindex="-1" data-svc="lost_passport">Lost / Damaged</button>
+          </div>
+          <div class="svc" id="svcBox" role="tabpanel" aria-labelledby="tab-new_passport">
+            <h3 class="svc__t" id="svcTitle"></h3>
+            <div class="fees">
+              <div class="fee fee--reg"><p class="fee__k">Regular processing</p><p class="fee__v" id="feeReg"></p><p class="fee__d" id="dayReg"></p></div>
+              <div class="fee fee--exp"><p class="fee__k">Expedited processing</p><p class="fee__v" id="feeExp"></p><p class="fee__d" id="dayExp"></p></div>
+            </div>
+            <div class="chk">
+              <div class="chk__hd"><p class="chk__k">Document checklist · tick as you prepare</p><p class="chk__n" id="chkN" aria-live="polite"></p></div>
+              <div class="chk__bar"><i id="chkBar"></i></div>
+              <ul class="chk__list" id="chkList"></ul>
+            </div>
+            <p class="svc__note"><svg><use href="#i-info"/></svg><span id="svcNote"></span></p>
+            <div class="svc__ft">
+              <p class="svc__src">Courier and online payment fees are extra. <a class="lnk" id="svcMore" href="passport.html">Read the full guide</a></p>
+              <a class="btn btn--royal" id="svcGo" href="https://www.passport.gov.ph/" target="_blank" rel="noopener"><span>Proceed to official appointment portal</span><svg><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="align-self:start">
+        <h2 class="h3">Before your appointment</h2>
+        <ol class="steps" style="margin-top:18px">
+          <li><b>Book online, for free</b><p>Use only passport.gov.ph or apostille.gov.ph. Nobody is authorised to sell slots.</p></li>
+          <li><b>Prepare originals and photocopies</b><p>Bring every document in original with one photocopy, on A4 paper.</p></li>
+          <li><b>Arrive 30 minutes early</b><p>Late applicants may be asked to rebook. Courtesy Lane applicants can walk in.</p></li>
+          <li><b>Pay at the office or online</b><p>Keep your official receipt. You need it to claim your passport or documents.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="feesH">
+    <div class="wrap">
+      <div class="sec__head"><h2 class="sec__h" id="feesH">Consular fees in the Philippines</h2><p class="sec__p">Fees paid at DFA consular offices. Posts abroad charge in local currency.</p></div>
+      <div style="margin-top:22px"><div class="tbl"><table><thead><tr><th scope=col>Service</th><th scope=col>Regular</th><th scope=col>Expedited</th><th scope=col>Release</th></tr></thead><tbody><tr><td>New passport or renewal (adult or minor)</td><td class=num>₱950</td><td class=num>₱1,200</td><td>12 / 6 working days in Metro Manila</td></tr><tr><td>Lost passport (valid), replacement</td><td class=num>₱1,300</td><td class=num>₱1,550</td><td>After a 15-working-day clearance</td></tr><tr><td>Damaged or mutilated passport</td><td class=num>₱1,300</td><td class=num>₱1,550</td><td>12 / 6 working days</td></tr><tr><td>Apostille, per document</td><td class=num>₱100</td><td class=num>₱200</td><td>5 / 2 working days</td></tr><tr><td>Courier delivery (optional)</td><td class=num>Set by courier</td><td class=num></td><td>Delivered after release</td></tr></tbody></table></div></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

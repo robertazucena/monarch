@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Regional offices · Department of Science and Technology (concept)</title>
+<meta name="description" content="The 16 DOST regional offices, their provinces and websites, and whether each is open now.">
+<meta name="theme-color" content="#0a2742">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="about">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/offices.webp" width="1600" height="1067" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><span aria-current="page">Regional offices</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">DOST in every region</h1>
+      <p class="ph__p">Regional offices run SETUP, take scholarship applications and offer testing and consultancy. Find yours and see whether it is open now.</p>
+      <div class="ph__acts"><a class="btn btn--gold" href="https://www.dost.gov.ph/products-and-services/regional-offices-s-t-services.html" target="_blank" rel="noopener">Services by region<svg><use href="#i-out"/></svg></a></div><dl class="ph__facts"><div><dt>Regions</dt><dd><span id="offTotal">16</span> offices</dd></div><div><dt>Hours</dt><dd>Monday to Friday, 8 AM to 5 PM</dd></div><div><dt>Status</dt><dd>Updates live, Philippine time</dd></div></dl>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="dirH" style="padding-top:44px">
+    <div class="wrap">
+      <h2 class="sr" id="dirH">Regional office directory</h2>
+      <div class="bar">
+        <div class="pills" role="radiogroup" aria-label="Island group" id="regPills" style="margin-top:0"></div>
+        <label class="fsearch"><span class="sr">Search regional offices</span><svg><use href="#i-search"/></svg><input type="search" id="offQ" placeholder="Search by province or region" autocomplete="off"></label>
+      </div>
+      <p class="count" id="offCount" aria-live="polite"></p>
+      <ul class="offs offs--page" id="offList"></ul>
+      <div style="margin-top:28px"><div class="callout"><svg><use href="#i-info"/></svg><p>Each regional office has its own website with its addresses, provincial offices and services. Office hours shown are the standard government schedule.</p></div></div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="relH">
+    <div class="wrap">
+      <h2 class="h2" id="relH">Related</h2>
+      <div class="grid3" style="margin-top:20px"><a class="lc" href="programs.html#setup"><span class="card__ic card__ic--amber"><svg><use href="#i-brief"/></svg></span><span class="lc__h">SETUP for MSMEs</span><span class="lc__p">Technology upgrading, through your region.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="programs.html#labs"><span class="card__ic card__ic--green"><svg><use href="#i-shield"/></svg></span><span class="lc__h">Laboratory services</span><span class="lc__p">Testing and calibration.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="contact.html"><span class="card__ic card__ic--red"><svg><use href="#i-chat"/></svg></span><span class="lc__h">Contact DOST</span><span class="lc__p">The Central Office in Taguig.</span><svg class=lc__go><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>News · Department of Education (concept)</title>
+<meta name="description" content="A story from the DepEd newsroom.">
+<meta name="theme-color" content="#0b2e23">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="news">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="artH">
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><a href="news.html">Newsroom</a></li><li><span aria-current="page" id="artCrumb">News</span></li></ol></nav>
+      <div class="art__meta"><span id="artBadge"></span><time id="artDate"></time></div>
+      <h1 class="ph__h" id="artH" style="margin-top:14px;max-width:26ch"></h1>
+      <p class="ph__p" id="artLede"></p>
+    </div>
+  </section>
+  <div class="wrap art">
+    <article class="art__body" id="article"></article>
+    <aside class="art__side" aria-label="Article tools">
+      <button class="btn btn--ghost" type="button" id="artShare"><svg><use href="#i-out"/></svg>Copy link to this story</button>
+      <div class="box2"><p class="h3">A concern about a school?</p><p class="lc__p" style="margin:6px 0 14px">The Public Assistance and Action Center takes calls on weekdays, 8 AM to 5 PM.</p><a class="btn btn--red btn--sm" href="tel:+63286388641"><svg><use href="#i-phone"/></svg>(02) 8638-8641</a></div>
+      <a class="more-l" href="news.html"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg>Back to the newsroom</a>
+    </aside>
+  </div>
+  <section class="sec" aria-labelledby="moreH">
+    <div class="wrap">
+      <h2 class="h2" id="moreH">More news</h2>
+      <ul class="ngrid" id="artRel"></ul>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

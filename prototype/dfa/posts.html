@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Embassies & Consulates · Department of Foreign Affairs (concept)</title>
+<meta name="description" content="Directory of Philippine embassies, consulates general and permanent missions abroad, with local time and office status.">
+<meta name="theme-color" content="#0b1e3b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="offices">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/posts.webp" width="1600" height="1067" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Embassies & consulates</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">Philippine embassies and consulates abroad</h1>
+      <p class="ph__p">Philippine foreign service posts renew passports, record births and marriages, notarise documents and help Filipinos in distress.</p>
+      <div class="ph__acts"><a class="btn btn--red" href="atn.html"><svg><use href="#i-life"/></svg>Emergency help abroad</a></div><dl class="ph__facts"><div><dt>Posts listed</dt><dd><span data-count="all">92</span></dd></div><div><dt>Regions</dt><dd>4</dd></div><div><dt>Local time</dt><dd>Updates live</dd></div></dl>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="pdirH" style="padding-top:44px">
+    <div class="wrap">
+      <h2 class="sr" id="pdirH">Post directory</h2>
+      <div class="bar">
+        <div class="pills" role="radiogroup" aria-label="Region" id="postTabs" style="margin-top:0"></div>
+        <label class="fsearch"><span class="sr">Search posts</span><svg><use href="#i-search"/></svg><input type="search" id="postQ" placeholder="Search by city or country" autocomplete="off"></label>
+      </div>
+      <p class="count" id="postCount" aria-live="polite"></p>
+      <ul class="prs" id="postList"></ul>
+      <div style="margin-top:28px"><div class="callout"><svg><use href="#i-info"/></svg><p>Office status assumes 9:00 AM to 5:00 PM local time, Monday to Friday. Each post sets its own hours, holidays and appointment system, so check its website before you go.</p></div></div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="relH">
+    <div class="wrap">
+      <h2 class="h2" id="relH">Related services</h2>
+      <div class="grid3" style="margin-top:20px"><a class="lc" href="atn.html"><span class="card__ic card__ic--red"><svg><use href="#i-life"/></svg></span><span class="lc__h">Assistance to Nationals</span><span class="lc__p">24/7 help for Filipinos overseas.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="passport.html"><span class="card__ic card__ic--royal"><svg><use href="#i-passport"/></svg></span><span class="lc__h">Passport</span><span class="lc__p">New, renewal, minors and lost passports.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="visa.html"><span class="card__ic card__ic--green"><svg><use href="#i-plane"/></svg></span><span class="lc__h">Visa & entry</span><span class="lc__p">Entry rules for foreign nationals.</span><svg class=lc__go><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

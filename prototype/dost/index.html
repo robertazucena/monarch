@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Department of Science and Technology · Republic of the Philippines (concept)</title>
+<meta name="description" content="A people-first concept for the Department of Science and Technology: S&amp;T scholarships, SETUP for small businesses, research grants, PAGASA and PHIVOLCS bulletins, regional offices and DOST news.">
+<meta name="theme-color" content="#0a2742">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="home">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <!-- 3. Hero with quick-action cards for students, businesses, researchers and everyone in a hazard -->
+  <section class="hero" id="programs" aria-labelledby="heroH">
+    <!-- DEPARTMENT SWAP: hero photo. Replace media/hero.webp + hero-sm.webp; tune --hero-focus in styles.css. -->
+    <div class="hero__media" aria-hidden="true">
+      <img src="media/hero.webp" srcset="media/hero-sm.webp 900w, media/hero.webp 2000w" sizes="(max-width:640px) 100vw, 65vw" width="2000" height="1333" alt="" fetchpriority="high" decoding="async">
+    </div>
+    <svg class="hero__guil guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <p class="notice"><span>NSTW 2026</span><em>This year’s <strong>National Science, Technology and Innovation Week</strong> is held in General Santos City. <a href="#news">See what’s featured</a>.</em></p>
+      <h1 class="hero__h" id="heroH">Science that works<i class="pn">,</i> <span>for the Filipino people<i class="pn">.</i></span></h1>
+      <p class="hero__p">Scholarships, help for small businesses, research grants and the country’s weather and hazard warnings: what the Department of Science and Technology does for you, in one place.</p>
+    </div>
+  </section>
+
+  <div class="wrap cards-wrap">
+    <ol class="cards">
+      <li class="card">
+        <span class="card__ic card__ic--royal"><svg><use href="#i-cap"/></svg></span>
+        <p class="card__k card__k--royal">DOST-SEI</p>
+        <h2 class="card__h">S&amp;T Scholarships</h2>
+        <p class="card__p">Undergraduate and graduate scholarships in science and technology. Nasa Siyensiya ang Pagasa, Maging DOST Iskolar Ka!</p>
+        <div class="card__ft">
+          <a class="lnk" href="programs.html#scholarships">About the program</a>
+          <a class="btn btn--royal btn--sm" href="https://www.science-scholarships.ph/" target="_blank" rel="noopener">Apply<svg><use href="#i-out"/></svg></a>
+        </div>
+      </li>
+      <li class="card">
+        <span class="card__ic card__ic--amber"><svg><use href="#i-brief"/></svg></span>
+        <p class="card__k card__k--amber">For MSMEs</p>
+        <h2 class="card__h">SETUP for Small Business</h2>
+        <p class="card__p">The Small Enterprise Technology Upgrading Program helps micro, small and medium enterprises upgrade their technology.</p>
+        <div class="card__ft">
+          <button class="lnk" type="button" data-open="setup">How SETUP works</button>
+          <a class="btn btn--navy btn--sm" href="#offices">Find an office<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </li>
+      <li class="card">
+        <span class="card__ic card__ic--green"><svg><use href="#i-book"/></svg></span>
+        <p class="card__k card__k--green">For Researchers</p>
+        <h2 class="card__h">Grants-In-Aid &amp; Balik Scientist</h2>
+        <p class="card__p">Fund research through the Grants-In-Aid program, or come home to work through the Balik Scientist Program.</p>
+        <div class="card__ft">
+          <a class="lnk" href="http://bsp.dost.gov.ph/" target="_blank" rel="noopener">Balik Scientist</a>
+          <a class="btn btn--green btn--sm" href="https://dpmisv2.dost.gov.ph/" target="_blank" rel="noopener">Apply for GIA<svg><use href="#i-out"/></svg></a>
+        </div>
+      </li>
+      <li class="card card--red">
+        <span class="card__ic card__ic--red"><svg><use href="#i-alert"/></svg></span>
+        <p class="card__k card__k--red">Today’s Outlook</p>
+        <h2 class="card__h">Weather &amp; Hazard Bulletins</h2>
+        <p class="card__p">Forecasts and typhoon warnings from PAGASA; earthquake, volcano and tsunami bulletins from PHIVOLCS.</p>
+        <div class="card__ft">
+          <a class="lnk" href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a>
+          <button class="btn btn--red btn--sm" type="button" data-open="atn">Check the outlook</button>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- 4. Issuances finder + regional offices -->
+  <section class="sec tools" aria-label="Announcements and regional offices">
+    <div class="wrap tools__grid">
+      <div class="panel panel--iss" id="issuances">
+        <div class="sec__head">
+          <p class="eyebrow">Calls &amp; Notices</p>
+          <h2 class="sec__h">Announcements</h2>
+          <p class="sec__p">Open calls for proposals and scholarships, program guidelines and public notices, searchable by keyword.</p>
+        </div>
+        <div class="seg" role="tablist" aria-label="Announcement type" id="issTabs"></div>
+        <label class="iss__q"><svg aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search announcements</span><input type="search" id="issQ" placeholder="Keyword, e.g. JSPS or scholarship" autocomplete="off"></label>
+        <p class="off__count" id="issCount" aria-live="polite"></p>
+        <ul class="isss" id="issList" role="tabpanel" data-limit="5"></ul>
+        <div class="panel__ft"><a class="more-l" href="announcements.html">All DOST announcements<svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+
+      <div class="panel panel--offices" id="offices">
+        <div class="sec__head">
+          <p class="eyebrow">16 Regions</p>
+          <h2 class="sec__h">Regional Offices</h2>
+          <p class="sec__p">Find the DOST regional office that covers your province, and whether it is open right now.</p>
+        </div>
+        <div class="pills" role="radiogroup" aria-label="Island group" id="regPills"></div>
+        <p class="off__count" id="offCount" aria-live="polite"></p>
+        <ul class="offs" id="offList"></ul>
+        <div class="panel__ft"><a class="more-l" href="offices.html">Regional and provincial offices<svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Newsroom -->
+  <section class="sec news" id="news" aria-labelledby="newsH">
+    <div class="wrap">
+      <div class="news__hd">
+        <div class="sec__head">
+          <p class="eyebrow">Newsroom</p>
+          <h2 class="sec__h" id="newsH">News from DOST</h2>
+          <p class="sec__p">Science and technology at work in the regions, in the words DOST published them.</p>
+        </div>
+        <div class="pills" role="radiogroup" aria-label="Category" id="newsPills"></div>
+      </div>
+      <div class="feat" id="newsFeat" role="region" aria-roledescription="carousel" aria-label="Featured stories"></div>
+      <ul class="ngrid" id="newsGrid" data-limit="6"></ul>
+      <div class="more"><a class="btn btn--ghost" href="news.html">Visit the newsroom<svg><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- 6. Programs for business and research + Central Office -->
+  <section class="sec posts" id="help" aria-labelledby="helpH">
+    <div class="wrap">
+      <div class="posts__box">
+        <svg class="posts__globe posts__globe--ruled" aria-hidden="true"><defs><pattern id="dostRings" width="56" height="56" patternUnits="userSpaceOnUse"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="14" cy="14" r="13"/><circle cx="42" cy="14" r="13"/><circle cx="14" cy="42" r="13"/><circle cx="42" cy="42" r="13"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#dostRings)"/></svg>
+        <div class="posts__l">
+          <p class="tag"><svg><use href="#i-building"/></svg>Programs &amp; Services</p>
+          <h2 class="posts__h" id="helpH">Bring DOST into your <span>business or research.</span></h2>
+          <p class="posts__p">Most help starts at your DOST regional or provincial office. These programs take it from there.</p>
+          <div class="regs">
+            <button class="reg" type="button" data-open="setup"><b>SETUP</b><span>Small Enterprise Technology Upgrading Program</span><svg><use href="#i-arrow"/></svg></button>
+            <a class="reg" href="programs.html#cest"><b>CEST</b><span>Community Empowerment thru Science and Technology</span><svg><use href="#i-arrow"/></svg></a>
+            <a class="reg" href="programs.html#labs"><b>RDI</b><span>Research and development laboratory services</span><svg><use href="#i-arrow"/></svg></a>
+            <a class="reg" href="https://www.foi.gov.ph/" target="_blank" rel="noopener"><b>FOI</b><span>Request a DOST record</span><svg><use href="#i-out"/></svg></a>
+          </div>
+          <p class="posts__more"><a class="more-l" href="contact.html">Every way to contact DOST<svg><use href="#i-arrow"/></svg></a></p>
+        </div>
+        <div class="office">
+          <h3 class="office__h">DOST Central Office · Taguig City</h3>
+          <ul class="office__list">
+            <li><svg><use href="#i-pin"/></svg><span>DOST Main Building, General Santos Avenue, Brgy. Central Bicutan, Taguig, Metro Manila</span></li>
+            <li><svg><use href="#i-phone"/></svg><span>Trunkline <a href="tel:+63288372071">(02) 8837-2071</a></span></li>
+            <li><svg><use href="#i-users"/></svg><span>Office of the Secretary, loc. 4000</span></li>
+            <li><svg><use href="#i-clock"/></svg><span>Monday to Friday, 8:00 AM to 5:00 PM</span></li>
+          </ul>
+          <a class="btn btn--gold" href="https://www.google.com/maps/search/?api=1&amp;query=DOST+Main+Building+General+Santos+Avenue+Bicutan+Taguig" target="_blank" rel="noopener">Get directions<svg><use href="#i-out"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

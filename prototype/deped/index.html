@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Department of Education · Republic of the Philippines (concept)</title>
+<meta name="description" content="A learner-first concept for the Department of Education: the Alternative Learning System, Senior High School, teacher support, DepEd issuances, regional offices and help with school concerns.">
+<meta name="theme-color" content="#0b2e23">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="home">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <!-- 3. Hero with quick-action cards for learners, parents and teachers -->
+  <section class="hero" id="programs" aria-labelledby="heroH">
+    <!-- DEPARTMENT SWAP: hero photo. Replace media/hero.webp + hero-sm.webp; tune --hero-focus in styles.css. -->
+    <div class="hero__media" aria-hidden="true">
+      <img src="media/hero.webp" srcset="media/hero-sm.webp 900w, media/hero.webp 2000w" sizes="(max-width:640px) 100vw, 65vw" width="2000" height="1333" alt="" fetchpriority="high" decoding="async">
+    </div>
+    <svg class="hero__guil guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <p class="notice"><span>Advisory</span><em>Schools prepare for the <strong>2026–2027 Super El Niño</strong> under <a href="#issuances">DM 064, s. 2026</a>. Check your division’s class schedule.</em></p>
+      <h1 class="hero__h" id="heroH">Quality basic education<i class="pn">,</i> <span>for every Filipino learner<i class="pn">.</i></span></h1>
+      <p class="hero__p">Kindergarten to Grade 12, the Alternative Learning System and the teachers behind them: programs, orders and help for learners, parents and schools in one place.</p>
+    </div>
+  </section>
+
+  <div class="wrap cards-wrap">
+    <ol class="cards">
+      <li class="card">
+        <span class="card__ic card__ic--royal"><svg><use href="#i-cap"/></svg></span>
+        <p class="card__k card__k--royal">Second Chance</p>
+        <h2 class="card__h">Alternative Learning System</h2>
+        <p class="card__p">Free classes for out-of-school youth and adults, with the A&amp;E Test for an elementary or junior high certificate.</p>
+        <div class="card__ft">
+          <button class="lnk" type="button" data-open="als">How ALS works</button>
+          <a class="btn btn--royal btn--sm" href="als.html#enrol">Enrol<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </li>
+      <li class="card">
+        <span class="card__ic card__ic--amber"><svg><use href="#i-brief"/></svg></span>
+        <p class="card__k card__k--amber">Grades 11 &amp; 12</p>
+        <h2 class="card__h">Strengthened Senior High School</h2>
+        <p class="card__p">Tracks, skills training and safer work immersion under DO 023, s. 2026.</p>
+        <div class="card__ft">
+          <a class="lnk" href="#issuances">Read DO 023</a>
+          <a class="btn btn--navy btn--sm" href="k12.html#shs">SHS program<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </li>
+      <li class="card">
+        <span class="card__ic card__ic--green"><svg><use href="#i-laptop"/></svg></span>
+        <p class="card__k card__k--green">For Teachers</p>
+        <h2 class="card__h">NEAP &amp; Professional Growth</h2>
+        <p class="card__p">MATATAG training, scholarships and the 231,000-unit teacher laptop program.</p>
+        <div class="card__ft">
+          <a class="lnk" href="https://pdis.deped.gov.ph/" target="_blank" rel="noopener">PDIS login</a>
+          <a class="btn btn--green btn--sm" href="https://training.deped.gov.ph/" target="_blank" rel="noopener">Learning portal<svg><use href="#i-out"/></svg></a>
+        </div>
+      </li>
+      <li class="card card--red">
+        <span class="card__ic card__ic--red"><svg><use href="#i-shield"/></svg></span>
+        <p class="card__k card__k--red">Learner Safety</p>
+        <h2 class="card__h">Learner Rights &amp; Protection</h2>
+        <p class="card__p">Report bullying, abuse or a learner at risk. The Public Assistance and Action Center takes the call.</p>
+        <div class="card__ft">
+          <a class="card__tel" href="tel:+63286388641"><svg><use href="#i-phone"/></svg>(02) 8638-8641</a>
+          <button class="btn btn--red btn--sm" type="button" data-open="atn">Get help</button>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- 4. Issuances finder + regional offices -->
+  <section class="sec tools" aria-label="Issuances and regional offices">
+    <div class="wrap tools__grid">
+      <div class="panel panel--iss" id="issuances">
+        <div class="sec__head">
+          <p class="eyebrow">Policy &amp; Guidance</p>
+          <h2 class="sec__h">DepEd Issuances</h2>
+          <p class="sec__p">The latest orders, memoranda and official statements, searchable by number or topic.</p>
+        </div>
+        <div class="seg" role="tablist" aria-label="Issuance type" id="issTabs"></div>
+        <label class="iss__q"><svg aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search issuances</span><input type="search" id="issQ" placeholder="Number or keyword, e.g. 023 or immersion" autocomplete="off"></label>
+        <p class="off__count" id="issCount" aria-live="polite"></p>
+        <ul class="isss" id="issList" role="tabpanel" data-limit="5"></ul>
+        <div class="panel__ft"><a class="more-l" href="issuances.html">All DepEd orders and memoranda<svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+
+      <div class="panel panel--offices" id="offices">
+        <div class="sec__head">
+          <p class="eyebrow">16 Regions</p>
+          <h2 class="sec__h">Regional Offices</h2>
+          <p class="sec__p">Find the regional office that covers your province, and whether it is open right now.</p>
+        </div>
+        <div class="pills" role="radiogroup" aria-label="Island group" id="regPills"></div>
+        <p class="off__count" id="offCount" aria-live="polite"></p>
+        <ul class="offs" id="offList"></ul>
+        <div class="panel__ft"><a class="more-l" href="offices.html">Regional and division directory<svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Newsroom -->
+  <section class="sec news" id="news" aria-labelledby="newsH">
+    <div class="wrap">
+      <div class="news__hd">
+        <div class="sec__head">
+          <p class="eyebrow">Newsroom</p>
+          <h2 class="sec__h" id="newsH">News from the Department</h2>
+          <p class="sec__p">Stories on learners, teachers and schools, in the words DepEd published them.</p>
+        </div>
+        <div class="pills" role="radiogroup" aria-label="Category" id="newsPills"></div>
+      </div>
+      <div class="feat" id="newsFeat" role="region" aria-roledescription="carousel" aria-label="Featured stories"></div>
+      <ul class="ngrid" id="newsGrid" data-limit="6"></ul>
+      <div class="more"><a class="btn btn--ghost" href="news.html">Visit the newsroom<svg><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- 6. Help with a school concern + Central Office -->
+  <section class="sec posts" id="help" aria-labelledby="helpH">
+    <div class="wrap">
+      <div class="posts__box">
+        <svg class="posts__globe posts__globe--ruled" viewBox="0 0 400 400" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"><path d="M0 36h400M0 72h400M0 108h400M0 144h400M0 180h400M0 216h400M0 252h400M0 288h400M0 324h400M0 360h400M0 396h400" vector-effect="non-scaling-stroke"/><path class="rule-m" d="M10 0v400" vector-effect="non-scaling-stroke"/></g></svg>
+        <div class="posts__l">
+          <p class="tag"><svg><use href="#i-chat"/></svg>Public Assistance</p>
+          <h2 class="posts__h" id="helpH">Need help with a <span>school concern?</span></h2>
+          <p class="posts__p">Most concerns are settled fastest at the school or the Schools Division Office. When they are not, these offices take it from there.</p>
+          <div class="regs">
+            <button class="reg" type="button" data-open="atn"><b>PAAC</b><span>Public Assistance and Action Center</span><svg><use href="#i-arrow"/></svg></button>
+            <a class="reg" href="https://www.deped.gov.ph/learner-rights-and-protection-office/" target="_blank" rel="noopener"><b>LRPO</b><span>Learner Rights and Protection</span><svg><use href="#i-out"/></svg></a>
+            <a class="reg" href="https://www.deped.gov.ph/about-deped/citizenscharter/" target="_blank" rel="noopener"><b>2026</b><span>Citizen’s Charter service standards</span><svg><use href="#i-out"/></svg></a>
+            <a class="reg" href="https://www.foi.gov.ph/" target="_blank" rel="noopener"><b>FOI</b><span>Request a DepEd record</span><svg><use href="#i-out"/></svg></a>
+          </div>
+          <p class="posts__more"><a class="more-l" href="contact.html">Every way to contact DepEd<svg><use href="#i-arrow"/></svg></a></p>
+        </div>
+        <div class="office">
+          <h3 class="office__h">DepEd Central Office · Pasig City</h3>
+          <ul class="office__list">
+            <li><svg><use href="#i-pin"/></svg><span>DepEd Complex, Meralco Avenue, Pasig City 1600, Metro Manila</span></li>
+            <li><svg><use href="#i-phone"/></svg><span>PAAC <a href="tel:+63286388641">(02) 8638-8641</a> / <a href="tel:+63286387530">8638-7530</a></span></li>
+            <li><svg><use href="#i-mail"/></svg><span><a href="mailto:depedactioncenter@deped.gov.ph">depedactioncenter@deped.gov.ph</a></span></li>
+            <li><svg><use href="#i-clock"/></svg><span>Monday to Friday, 8:00 AM to 5:00 PM</span></li>
+          </ul>
+          <a class="btn btn--gold" href="https://www.google.com/maps/search/?api=1&amp;query=DepEd+Complex+Meralco+Avenue+Pasig+City" target="_blank" rel="noopener">Get directions<svg><use href="#i-out"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

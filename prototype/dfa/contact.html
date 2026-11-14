@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · Department of Foreign Affairs (concept)</title>
+<meta name="description" content="Contact the Department of Foreign Affairs: address, hotlines, emails and an inquiry form.">
+<meta name="theme-color" content="#0b1e3b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="contact">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/contact.webp" width="1600" height="1068" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Contact</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">How can we help?</h1>
+      <p class="ph__p">For urgent help abroad, call the 24/7 ATN hotline. For everything else, use the form or the directory below and we will route your message to the right office.</p>
+      <div class="ph__acts"><a class="btn btn--red" href="tel:+63288344996"><svg><use href="#i-phone"/></svg>ATN hotline (+632) 8834-4996</a></div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="formH" style="padding-top:48px">
+    <div class="wrap tools__grid" style="align-items:start">
+      <div class="panel">
+        <h2 class="h2" id="formH">Send an inquiry</h2>
+        <p class="sec__p" style="margin-bottom:22px">We reply within 3 working days. Do not send passport or ID scans through this form.</p>
+        <form class="form" id="contactForm" novalidate>
+          <div class="row2">
+            <div class="fld"><label for="cName">Full name</label><input id="cName" name="name" autocomplete="name" required><p class="fld__err">Enter your full name.</p></div>
+            <div class="fld"><label for="cMail">Email</label><input id="cMail" name="email" type="email" autocomplete="email" required><p class="fld__err">Enter a valid email address.</p></div>
+          </div>
+          <div class="fld"><label for="cTopic">Topic</label>
+            <select id="cTopic" name="topic" required><option value="">Choose a topic</option><option>Passport</option><option>Apostille</option><option>Visa and entry</option><option>Assistance to Nationals</option><option>Feedback or complaint</option><option>Other</option></select><p class="fld__err">Choose a topic.</p></div>
+          <div class="fld"><label for="cMsg">Message</label><small id="cMsgHint">Include your appointment or reference number if you have one.</small><textarea id="cMsg" name="message" aria-describedby="cMsgHint" required></textarea><p class="fld__err">Write your message.</p></div>
+          <div class="fld fld--chk"><label><input type="checkbox" required>I agree that the Department may use these details to answer my inquiry, under the Data Privacy Act of 2012.</label><p class="fld__err">Please agree to continue.</p></div>
+          <div><button class="btn btn--royal" type="submit">Send inquiry<svg><use href="#i-arrow"/></svg></button></div>
+        </form>
+        <div class="done" id="contactDone" tabindex="-1" hidden><b>Thank you, your inquiry is in.</b><p>Your reference number is <code id="contactRef"></code>. This is a concept, so no message was actually sent.</p></div>
+      </div>
+      <div style="display:grid;gap:18px">
+        <div class="posts__box" style="grid-template-columns:1fr;gap:0">
+          <div class="office" style="background:none;border:0;padding:0">
+            <h2 class="office__h">DFA Home Office · Pasay City</h2>
+            <ul class="office__list">
+              <li><svg><use href="#i-pin"/></svg><span>2330 Roxas Boulevard, Pasay City, 1300 Metro Manila</span></li>
+              <li><svg><use href="#i-phone"/></svg><span>Trunkline <a href="tel:+63288344000">(+632) 8834-4000</a></span></li>
+              <li><svg><use href="#i-mail"/></svg><span><a href="mailto:oca.concerns@dfa.gov.ph">oca.concerns@dfa.gov.ph</a> (consular concerns)</span></li>
+              <li><svg><use href="#i-clock"/></svg><span>Monday to Friday, 8:00 AM to 5:00 PM</span></li>
+            </ul>
+            <a class="btn btn--gold" href="https://www.google.com/maps/search/?api=1&amp;query=Department+of+Foreign+Affairs+2330+Roxas+Boulevard+Pasay" target="_blank" rel="noopener">Get directions<svg><use href="#i-out"/></svg></a>
+          </div>
+        </div>
+        <div class="panel">
+          <h2 class="h3">Hotlines</h2>
+          <ul class="kv" style="margin-top:14px">
+            <li><span>Passport appointments</span><a href="tel:+63282343488">(+632) 8234-3488</a></li>
+            <li><span>Apostille inquiries</span><a href="tel:+63286519400">(+632) 8651-9400</a></li>
+            <li><span>ATN, 24/7</span><a href="tel:+63288344996">(+632) 8834-4996</a></li>
+            <li><span>Citizens’ Complaint Hotline</span><a href="tel:8888">8888</a></li>
+            <li><span>Contact Center ng Bayan</span><a href="tel:16565">1-6565</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="relH">
+    <div class="wrap">
+      <h2 class="h2" id="relH">Related services</h2>
+      <div class="grid3" style="margin-top:20px"><a class="lc" href="offices.html"><span class="card__ic card__ic--royal"><svg><use href="#i-building"/></svg></span><span class="lc__h">Consular offices</span><span class="lc__p">Find an office and see if it is open now.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="posts.html"><span class="card__ic card__ic--green"><svg><use href="#i-globe"/></svg></span><span class="lc__h">Embassies & consulates</span><span class="lc__p">Philippine posts and their local time.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="atn.html"><span class="card__ic card__ic--red"><svg><use href="#i-life"/></svg></span><span class="lc__h">Assistance to Nationals</span><span class="lc__p">24/7 help for Filipinos overseas.</span><svg class=lc__go><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · Department of Science and Technology (concept)</title>
+<meta name="description" content="Contact the Department of Science and Technology: the Central Office in Taguig, its trunkline and the executive offices.">
+<meta name="theme-color" content="#0a2742">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="contact">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/contact.webp" width="1600" height="1067" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Contact</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">How can we help?</h1>
+      <p class="ph__p">For programs and services, your DOST regional office is usually the fastest route. For the Central Office, call the trunkline or write to us here.</p>
+      <div class="ph__acts"><a class="btn btn--gold" href="tel:+63288372071"><svg><use href="#i-phone"/></svg>Trunkline (02) 8837-2071</a></div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="formH" style="padding-top:48px">
+    <div class="wrap tools__grid" style="align-items:start">
+      <div class="panel">
+        <h2 class="h2" id="formH">Send an inquiry</h2>
+        <p class="sec__p" style="margin-bottom:22px">Tell us the program and your region so we can route your message to the right office.</p>
+        <form class="form" id="contactForm" novalidate>
+          <div class="row2">
+            <div class="fld"><label for="cName">Full name</label><input id="cName" name="name" autocomplete="name" required><p class="fld__err">Enter your full name.</p></div>
+            <div class="fld"><label for="cMail">Email</label><input id="cMail" name="email" type="email" autocomplete="email" required><p class="fld__err">Enter a valid email address.</p></div>
+          </div>
+          <div class="row2">
+            <div class="fld"><label for="cTopic">Topic</label>
+              <select id="cTopic" name="topic" required><option value="">Choose a topic</option><option>S&amp;T scholarships</option><option>SETUP and help for my business</option><option>Research grants (GIA, Balik Scientist)</option><option>Laboratory testing</option><option>Records and FOI requests</option><option>Procurement and bids</option><option>Feedback or complaint</option><option>Other</option></select><p class="fld__err">Choose a topic.</p></div>
+            <div class="fld"><label for="cSchool">Region or province <span class="muted">(optional)</span></label><input id="cSchool" name="region" placeholder="e.g. Region XII, South Cotabato"></div>
+          </div>
+          <div class="fld"><label for="cMsg">Message</label><small id="cMsgHint">Say what you need and anything you have already tried.</small><textarea id="cMsg" name="message" aria-describedby="cMsgHint" required></textarea><p class="fld__err">Write your message.</p></div>
+          <div class="fld fld--chk"><label><input type="checkbox" required>I agree that the Department may use these details to answer my inquiry, under the Data Privacy Act of 2012.</label><p class="fld__err">Please agree to continue.</p></div>
+          <div><button class="btn btn--royal" type="submit">Send message<svg><use href="#i-arrow"/></svg></button></div>
+        </form>
+        <div class="done" id="contactDone" tabindex="-1" hidden><b>Thank you, your message is in.</b><p>Your reference number is <code id="contactRef"></code>. This is a concept, so no message was actually sent.</p></div>
+      </div>
+      <div style="display:grid;gap:18px">
+        <div class="posts__box" style="grid-template-columns:1fr;gap:0">
+          <div class="office" style="background:none;border:0;padding:0">
+            <h2 class="office__h">DOST Central Office · Taguig City</h2>
+            <ul class="office__list">
+              <li><svg><use href="#i-pin"/></svg><span>DOST Main Building, General Santos Avenue, Brgy. Central Bicutan, Taguig, Metro Manila</span></li>
+              <li><svg><use href="#i-phone"/></svg><span>Trunkline <a href="tel:+63288372071">(02) 8837-2071</a></span></li>
+              <li><svg><use href="#i-clock"/></svg><span>Monday to Friday, 8:00 AM to 5:00 PM</span></li>
+            </ul>
+            <a class="btn btn--gold" href="https://www.google.com/maps/search/?api=1&amp;query=DOST+Main+Building+General+Santos+Avenue+Bicutan+Taguig" target="_blank" rel="noopener">Get directions<svg><use href="#i-out"/></svg></a>
+          </div>
+        </div>
+        <div class="panel">
+          <h2 class="h3">Executive offices</h2>
+          <p class="lc__p" style="margin-top:4px">Call (02) 8837-2071, then the local.</p>
+          <ul class="kv" style="margin-top:14px"><li><span>Office of the Secretary (OSEC)<br><small class="muted">Dr. Renato U. Solidum, Jr.</small></span><a href="tel:+63288372071,4000">loc. 4000</a></li><li><span>Undersecretary for Scientific and Technical Services<br><small class="muted">Ms. Maridon O. Sahagun</small></span><a href="tel:+63288372071,3000">loc. 3000</a></li><li><span>Undersecretary for Research and Development<br><small class="muted">Dr. Leah J. Buendia</small></span><a href="tel:+63288372071,3040">loc. 3040</a></li><li><span>Undersecretary for Regional Operations<br><small class="muted">Engr. Sancho A. Mabborang</small></span><a href="tel:+63288372071,3060">loc. 3060</a></li><li><span>Undersecretary for Special Concerns<br><small class="muted">Dr. Teodoro Gatchalian</small></span><a href="tel:+63288372071,3020">loc. 3020</a></li><li><span>Assistant Secretary for Administration and Legal Affairs<br><small class="muted">Dr. Diana L. Ignacio</small></span><a href="tel:+63288372071,3050">loc. 3050</a></li><li><span>Assistant Secretary for Technology Transfer, Communications, and Commercialization<br><small class="muted">Mr. Napoleon K. Juanillo, Jr., PhD</small></span><a href="tel:+63288372071,3010">loc. 3010</a></li><li><span>Assistant Secretary for Development Cooperation<br><small class="muted">Mr. Rodolfo J. Calzado, Jr.</small></span><a href="tel:+63288372071,3030">loc. 3030</a></li><li><span>Assistant Secretary for Countryside Development<br><small class="muted">Engr. Maria Teresa Bien De Guzman</small></span><a href="tel:+63288372071,4041">loc. 4041</a></li></ul>
+        </div>
+        <div class="panel">
+          <h2 class="h3">Directories</h2>
+          <ul class="links2" style="margin-top:12px">
+            <li><a href="https://www.dost.gov.ph/contact-us/office-directory.html" target="_blank" rel="noopener">Central Office directory<svg><use href="#i-out"/></svg></a></li>
+            <li><a href="https://www.dost.gov.ph/agency-links/regional-offices.html" target="_blank" rel="noopener">Regional offices<svg><use href="#i-out"/></svg></a></li>
+            <li><a href="https://www.dost.gov.ph/contact-us/list-of-freedom-of-information-receiving-officers-and-data-protection-officers.html" target="_blank" rel="noopener">FOI receiving and data protection officers<svg><use href="#i-out"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="relH">
+    <div class="wrap">
+      <h2 class="h2" id="relH">Related</h2>
+      <div class="grid3" style="margin-top:20px"><a class="lc" href="offices.html"><span class="card__ic card__ic--green"><svg><use href="#i-pin"/></svg></span><span class="lc__h">Regional offices</span><span class="lc__p">Find the office for your province.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="agencies.html"><span class="card__ic card__ic--royal"><svg><use href="#i-building"/></svg></span><span class="lc__h">Agencies &amp; councils</span><span class="lc__p">Contact PAGASA, SEI and the rest.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="transparency.html#foi"><span class="card__ic card__ic--amber"><svg><use href="#i-doc"/></svg></span><span class="lc__h">Freedom of Information</span><span class="lc__p">Request a DOST record.</span><svg class=lc__go><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

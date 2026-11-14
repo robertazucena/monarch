@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Regional Offices · Department of Education (concept)</title>
+<meta name="description" content="DepEd regional offices across Luzon, the Visayas and Mindanao, with the provinces each one covers.">
+<meta name="theme-color" content="#0b2e23">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="about">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/offices.webp" width="1600" height="1199" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><span aria-current="page">Regional offices</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">Regional offices across the country</h1>
+      <p class="ph__p">Each regional office oversees the schools division offices in its provinces and cities. Find yours and see whether it is open now.</p>
+      <div class="ph__acts"><a class="btn btn--gold" href="https://www.deped.gov.ph/contact-us/regional-division-offices-directory/" target="_blank" rel="noopener">Regional and division directory<svg><use href="#i-out"/></svg></a></div><dl class="ph__facts"><div><dt>Regions</dt><dd><span id="offTotal">16</span> offices</dd></div><div><dt>Hours</dt><dd>Monday to Friday, 8 AM to 5 PM</dd></div><div><dt>Status</dt><dd>Updates live, Philippine time</dd></div></dl>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="dirH" style="padding-top:44px">
+    <div class="wrap">
+      <h2 class="sr" id="dirH">Regional office directory</h2>
+      <div class="bar">
+        <div class="pills" role="radiogroup" aria-label="Island group" id="regPills" style="margin-top:0"></div>
+        <label class="fsearch"><span class="sr">Search regional offices</span><svg><use href="#i-search"/></svg><input type="search" id="offQ" placeholder="Search by province or region" autocomplete="off"></label>
+      </div>
+      <p class="count" id="offCount" aria-live="polite"></p>
+      <ul class="offs offs--page" id="offList"></ul>
+      <div style="margin-top:28px"><div class="callout"><svg><use href="#i-info"/></svg><p>For a concern about a specific school, start with the school head, then the <b>Schools Division Office</b> for your city or province. The Bangsamoro region runs its own Ministry of Basic, Higher and Technical Education.</p></div></div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="relH">
+    <div class="wrap">
+      <h2 class="h2" id="relH">Related</h2>
+      <div class="grid3" style="margin-top:20px"><a class="lc" href="contact.html"><span class="card__ic card__ic--red"><svg><use href="#i-chat"/></svg></span><span class="lc__h">Contact DepEd</span><span class="lc__p">The Central Office and hotlines.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="als.html"><span class="card__ic card__ic--royal"><svg><use href="#i-cap"/></svg></span><span class="lc__h">Alternative Learning System</span><span class="lc__p">Find ALS through your division office.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="about.html#organisation"><span class="card__ic card__ic--green"><svg><use href="#i-building"/></svg></span><span class="lc__h">Organisation</span><span class="lc__p">How the Central Office, regions and divisions fit.</span><svg class=lc__go><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

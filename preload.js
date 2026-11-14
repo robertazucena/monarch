@@ -136,6 +136,46 @@
     if (a.getAttribute("aria-current") === "page" || !pre.classList.contains("done")) return;
     leave(a.href);
   });
+  /* the same page change without leaving the page (work.js: opening a project, back to its service): the panel wipes
+     in from the left exactly as for a link, task() draws the new view under it, the name decodes and the percentage
+     counts up while wait() (the project's live page) loads, at least MIN, at most MAX, then the panel wipes off
+     left to right as on arrival */
+  const cover = (task, wait) => new Promise(res => {
+    if (still) { task(); res(); return; }
+    pre.classList.remove("gone", "leave", "done");
+    pre.classList.add("snap", "from-left", "done");
+    flick();
+    num.hidden = false; num.textContent = "0%"; decode(0);
+    void pre.offsetWidth;
+    pre.classList.remove("snap");
+    pre.classList.add("leave");
+    requestAnimationFrame(() => pre.classList.remove("from-left", "done"));
+    setTimeout(() => {
+      task();
+      let ok = false, shown = 0, lastD = 0;
+      const s0 = performance.now();
+      Promise.race([Promise.resolve(wait ? wait() : null), new Promise(r => setTimeout(r, MAX))]).then(() => { ok = true; });
+      const step = now => {
+        const t = now - s0, done = (ok && t >= MIN) || t >= MAX;
+        const target = done ? 1 : 0.9 * (1 - Math.exp(-t / 900));
+        shown += (target - shown) * (done ? 0.14 : 0.08);
+        if (done && 1 - shown < 0.004) shown = 1;
+        num.textContent = Math.round(shown * 100) + "%";
+        if (now - lastD > 55) { decode(shown); lastD = now; }
+        if (shown < 1) { requestAnimationFrame(step); return; }
+        decode(1);
+        setTimeout(() => {
+          pre.classList.remove("leave");
+          pre.classList.add("done");
+          res();
+          setTimeout(() => pre.classList.add("gone"), 1500);
+        }, 380);
+      };
+      requestAnimationFrame(step);
+    }, 950);
+  });
+  window.MLPre = { cover };
+
   /* back/forward from the page cache: lift the panel again instead of staying covered */
   addEventListener("pageshow", e => { if (e.persisted) { pre.classList.remove("leave", "from-left"); pre.classList.add("done"); } });
 })();

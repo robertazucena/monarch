@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · Department of Education (concept)</title>
+<meta name="description" content="Contact the Department of Education: the Public Assistance and Action Center, the Central Office and directories.">
+<meta name="theme-color" content="#0b2e23">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="contact">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/contact.webp" width="1600" height="1067" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Contact</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">How can we help?</h1>
+      <p class="ph__p">Most concerns are settled fastest at the school or the Schools Division Office. For everything else, write to us or call the Public Assistance and Action Center.</p>
+      <div class="ph__acts"><a class="btn btn--red" href="tel:+63286388641"><svg><use href="#i-phone"/></svg>PAAC (02) 8638-8641</a></div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="formH" style="padding-top:48px">
+    <div class="wrap tools__grid" style="align-items:start">
+      <div class="panel">
+        <h2 class="h2" id="formH">Send a concern or inquiry</h2>
+        <p class="sec__p" style="margin-bottom:22px">Tell us the school and division involved so we can route your message to the right office.</p>
+        <form class="form" id="contactForm" novalidate>
+          <div class="row2">
+            <div class="fld"><label for="cName">Full name</label><input id="cName" name="name" autocomplete="name" required><p class="fld__err">Enter your full name.</p></div>
+            <div class="fld"><label for="cMail">Email</label><input id="cMail" name="email" type="email" autocomplete="email" required><p class="fld__err">Enter a valid email address.</p></div>
+          </div>
+          <div class="row2">
+            <div class="fld"><label for="cTopic">Topic</label>
+              <select id="cTopic" name="topic" required><option value="">Choose a topic</option><option>Enrolment and schools</option><option>Alternative Learning System</option><option>Learner safety or protection</option><option>Teachers and personnel</option><option>Records and FOI requests</option><option>Education data (Project Bukas)</option><option>Feedback or complaint</option><option>Other</option></select><p class="fld__err">Choose a topic.</p></div>
+            <div class="fld"><label for="cSchool">School and division <span class="muted">(optional)</span></label><input id="cSchool" name="school" placeholder="e.g. Dagupan City NHS, SDO Dagupan"></div>
+          </div>
+          <div class="fld"><label for="cMsg">Message</label><small id="cMsgHint">Say what happened, when, and what you have already tried.</small><textarea id="cMsg" name="message" aria-describedby="cMsgHint" required></textarea><p class="fld__err">Write your message.</p></div>
+          <div class="fld fld--chk"><label><input type="checkbox" required>I agree that the Department may use these details to answer my concern, under the Data Privacy Act of 2012.</label><p class="fld__err">Please agree to continue.</p></div>
+          <div><button class="btn btn--royal" type="submit">Send message<svg><use href="#i-arrow"/></svg></button></div>
+        </form>
+        <div class="done" id="contactDone" tabindex="-1" hidden><b>Thank you, your message is in.</b><p>Your reference number is <code id="contactRef"></code>. This is a concept, so no message was actually sent.</p></div>
+      </div>
+      <div style="display:grid;gap:18px">
+        <div class="posts__box" style="grid-template-columns:1fr;gap:0">
+          <div class="office" style="background:none;border:0;padding:0">
+            <h2 class="office__h">DepEd Central Office · Pasig City</h2>
+            <ul class="office__list">
+              <li><svg><use href="#i-pin"/></svg><span>DepEd Complex, Meralco Avenue, Pasig City 1600, Metro Manila</span></li>
+              <li><svg><use href="#i-phone"/></svg><span>PAAC <a href="tel:+63286388641">(02) 8638-8641</a> / <a href="tel:+63286387530">8638-7530</a></span></li>
+              <li><svg><use href="#i-mail"/></svg><span><a href="mailto:depedactioncenter@deped.gov.ph">depedactioncenter@deped.gov.ph</a></span></li>
+              <li><svg><use href="#i-clock"/></svg><span>Monday to Friday, 8:00 AM to 5:00 PM</span></li>
+            </ul>
+            <a class="btn btn--gold" href="https://www.google.com/maps/search/?api=1&amp;query=DepEd+Complex+Meralco+Avenue+Pasig+City" target="_blank" rel="noopener">Get directions<svg><use href="#i-out"/></svg></a>
+          </div>
+        </div>
+        <div class="panel">
+          <h2 class="h3">Hotlines and email</h2>
+          <ul class="kv" style="margin-top:14px">
+            <li><span>Public Assistance and Action Center</span><a href="tel:+63286388641">(02) 8638-8641</a></li>
+            <li><span>PAAC second line</span><a href="tel:+63286387530">(02) 8638-7530</a></li>
+            <li><span>Project Bukas</span><a href="tel:+63286381780">(02) 8638-1780</a></li>
+            <li><span>Office of the Secretary</span><a href="mailto:osec@deped.gov.ph">osec@deped.gov.ph</a></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h2 class="h3">Directories</h2>
+          <ul class="links2" style="margin-top:12px">
+            <li><a href="https://www.deped.gov.ph/contact-us/directory/" target="_blank" rel="noopener">Central Office directory<svg><use href="#i-out"/></svg></a></li>
+            <li><a href="https://www.deped.gov.ph/contact-us/regional-division-offices-directory/" target="_blank" rel="noopener">Regional and division offices<svg><use href="#i-out"/></svg></a></li>
+            <li><a href="https://www.deped.gov.ph/als-contact-us/" target="_blank" rel="noopener">Alternative Learning System<svg><use href="#i-out"/></svg></a></li>
+            <li><a href="https://www.deped.gov.ph/contact-us-neap/" target="_blank" rel="noopener">NEAP<svg><use href="#i-out"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="relH">
+    <div class="wrap">
+      <h2 class="h2" id="relH">Related</h2>
+      <div class="grid3" style="margin-top:20px"><a class="lc" href="offices.html"><span class="card__ic card__ic--green"><svg><use href="#i-pin"/></svg></span><span class="lc__h">Regional offices</span><span class="lc__p">Find the office for your province.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="programs.html#protection"><span class="card__ic card__ic--red"><svg><use href="#i-shield"/></svg></span><span class="lc__h">Learner protection</span><span class="lc__p">The LRPO and TeleSafe helpline.</span><svg class=lc__go><use href="#i-arrow"/></svg></a><a class="lc" href="transparency.html#foi"><span class="card__ic card__ic--amber"><svg><use href="#i-doc"/></svg></span><span class="lc__h">Freedom of Information</span><span class="lc__p">Request a DepEd record.</span><svg class=lc__go><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

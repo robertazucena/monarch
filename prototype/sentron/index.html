@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview · Sentron Ops (concept)</title>
+<meta name="description" content="Sentron Ops: plant monitoring, alarms, dispatch, equipment and service reports for Sentron Engineering, in one loop. A concept with sample data.">
+<meta name="theme-color" content="#060b0d">
+<link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@75..125,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>/* theme before first paint: ?theme= in the link (used by the Monarch portfolio), else the saved choice, else dark */(function(){var q=/[?&]theme=(light|dark)/.exec(location.search),t;try{t=localStorage.getItem("sentron-theme")}catch(e){}document.documentElement.dataset.theme=q?q[1]:t||"dark"})()</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Concept: Sentron Ops. One loop, built on Sentron's "system operation data analysis" service:
+     plant reading -> alarm -> call -> dispatch -> visit -> signed report -> reading back to normal.
+     Client names come from sentron.com.sg; readings, equipment, jobs and reports are SAMPLE data.
+     Routes are #pagename. -->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- the mark: an S drawn as one run of duct, split by a 45° damper blade. Upper half = return air, lower half = supply -->
+  <symbol id="mark" viewBox="28 8 200 240"><path d="M208 28H88A40 40 0 0 0 48 68V108A40 40 0 0 0 88 148H108L148 108H96A8 8 0 0 1 88 100V76A8 8 0 0 1 96 68H208Z" fill="currentColor"/><path d="M122 148L162 108H168A40 40 0 0 1 208 148V188A40 40 0 0 1 168 228H48V188H160A8 8 0 0 0 168 180V156A8 8 0 0 0 160 148Z" style="fill:var(--mark2,currentColor)"/></symbol>
+  <symbol id="sun" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="moon" viewBox="0 0 16 16"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="x" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6"/></symbol>
+</svg>
+
+<!-- preloader: the same flipping logo on every load and every route change -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__in">
+    <!-- the logo flips like a damper blade: two faces, the back one pre-turned so it reads the right way round -->
+    <div class="boot__logo"><svg class="f"><use href="#mark"/></svg><svg class="b"><use href="#mark"/></svg></div>
+    <p class="boot__k">Loading <b id="bootZone">Overview</b></p>
+    <div class="boot__bar"><i id="bootBar"></i></div>
+  </div>
+</div>
+
+<div class="app">
+  <!-- the riser: navigation as one shaft with a floor per view -->
+  <nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="#overview" aria-label="Sentron Ops, overview"><svg><use href="#mark"/></svg><span>Sentron<small>Ops console</small></span></a>
+    <button class="rail__menu" type="button" id="menuBtn" aria-expanded="false" aria-controls="floors">Menu</button>
+    <ol class="rail__floors" id="floors"></ol>
+    <div class="rail__loop" aria-hidden="true">
+      <p class="mono">The loop</p>
+      <p>Reading → Alarm → Call → Dispatch → Visit → Report</p>
+    </div>
+    <div class="rail__ft">
+      <p class="mono">Ops desk · Sin Ming Lane</p>
+      <a href="tel:+6564592141">+65 6459 2141</a>
+    </div>
+  </nav>
+
+  <main id="main" class="main" tabindex="-1">
+    <header class="top">
+      <div class="top__t">
+        <p class="mono top__k" id="topK">L01 · Overview</p>
+        <h1 class="top__h" id="topH">Overview</h1>
+        <p class="top__s" id="topS"></p>
+      </div>
+      <div class="top__r">
+        <div class="theme" role="group" aria-label="Theme" id="theme"><button type="button" data-theme-set="light" aria-pressed="false"><svg aria-hidden="true"><use href="#sun"/></svg>Light</button><button type="button" data-theme-set="dark" aria-pressed="true"><svg aria-hidden="true"><use href="#moon"/></svg>Dark</button></div>
+        <span class="sample mono" title="Readings, equipment, jobs and reports are illustrative">Sample data</span>
+        <p class="clock"><span class="mono" id="date">—</span><b id="clock">--:--</b><span class="mono">SGT</span></p>
+      </div>
+    </header>
+
+    <!-- ===================== L01 OVERVIEW ===================== -->
+    <div data-view="overview">
+      <p class="sbar" id="sbar" aria-live="off"></p>
+      <section class="kpis" id="kpis" aria-label="Delivery against Sentron's target bands, last 12 weeks"></section>
+      <div class="cg">
+        <section class="card" aria-labelledby="arH">
+          <div class="card__hd">
+            <div><h2 class="card__h" id="arH">Alarms raised vs restored</h2><p class="card__s">Last 24 hours, in 2-hour blocks</p></div>
+            <ul class="lg" id="arLg" aria-label="Legend"></ul>
+          </div>
+          <div class="chart" id="arChart"></div>
+          <div class="chart__ft" id="arFt"></div>
+        </section>
+        <section class="card feed" aria-labelledby="fdH">
+          <div class="card__hd"><div><h2 class="card__h" id="fdH">Live events</h2><p class="card__s">BMS readings and every step of the loop, newest first</p></div></div>
+          <ol class="feed__list" id="feed"></ol>
+        </section>
+      </div>
+      <div class="cg3">
+        <section class="card" aria-labelledby="efH">
+          <div class="card__hd"><div><h2 class="card__h" id="efH">Plant efficiency</h2><p class="card__s">kW per refrigeration ton, live. Lower is better.</p></div></div>
+          <ul class="effb" id="effb"></ul>
+          <p class="effb__k" id="effK"></p>
+        </section>
+        <section class="card" aria-labelledby="bdH">
+          <div class="card__hd"><div><h2 class="card__h" id="bdH">Buildings</h2><p class="card__s" id="bdS"></p></div></div>
+          <div class="board" id="board"></div>
+        </section>
+        <section class="card" aria-labelledby="crH">
+          <div class="card__hd"><div><h2 class="card__h" id="crH">Crews now</h2><p class="card__s" id="crS"></p></div></div>
+          <div class="crw" id="crw"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ===================== L02 PLANT ===================== -->
+    <div data-view="plant" hidden>
+      <section class="reads" id="reads" aria-label="Network at a glance"></section>
+      <div class="md">
+        <section class="card md__list" aria-labelledby="bH">
+          <div class="card__hd"><div><h2 class="card__h" id="bH">Monitored buildings</h2><p class="card__s">Linked to each building's management system</p></div></div>
+          <div class="mlist" role="tablist" aria-orientation="vertical" aria-label="Buildings" id="bList"></div>
+        </section>
+        <div class="md__det stack" id="plantDet" role="tabpanel" tabindex="-1"></div>
+      </div>
+    </div>
+
+    <!-- ===================== L03 FAULTS (alarms and calls) ===================== -->
+    <div data-view="faults" hidden>
+      <section class="card" aria-labelledby="alH">
+        <div class="card__hd">
+          <div><h2 class="card__h" id="alH">Alarms</h2><p class="card__s" id="alS"></p></div>
+          <div class="keys" role="group" aria-label="Filter alarms" id="alTabs"></div>
+        </div>
+        <div class="tblw"><table class="tbl" id="alTbl"></table></div>
+      </section>
+      <div class="split">
+        <section class="card" aria-labelledby="clH">
+          <div class="card__hd"><div><h2 class="card__h" id="clH">Calls</h2><p class="card__s" id="clS"></p></div></div>
+          <div class="tblw"><table class="tbl" id="clTbl"></table></div>
+        </section>
+        <section class="card" aria-labelledby="newH">
+          <div class="card__hd"><div><h2 class="card__h" id="newH">Log a phoned-in call</h2><p class="card__s">For sites we don't monitor. It goes straight to Dispatch.</p></div></div>
+          <form class="form" id="callForm" novalidate>
+            <label class="fld"><span>Site</span><input name="site" list="siteList" required autocomplete="off" placeholder="e.g. Parc Vista Condominium"></label>
+            <datalist id="siteList"></datalist>
+            <label class="fld"><span>Unit tag</span><input name="unit" required placeholder="e.g. FCU-04" autocomplete="off"></label>
+            <fieldset class="fld fld--pr"><legend>Priority</legend>
+              <label><input type="radio" name="p" value="1"><b>P1</b>No cooling in a critical area · respond in 2 h</label>
+              <label><input type="radio" name="p" value="2" checked><b>P2</b>Leak, noise, part failing · respond in 4 h</label>
+              <label><input type="radio" name="p" value="3"><b>P3</b>Comfort issue · next working day</label>
+            </fieldset>
+            <label class="fld"><span>What the caller said</span><textarea name="d" rows="3" required placeholder="Water dripping from ceiling grille"></textarea></label>
+            <p class="form__err" id="callErr" role="alert"></p>
+            <button class="btn btn--cool" type="submit">Send to Dispatch</button>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <!-- ===================== L04 DISPATCH ===================== -->
+    <div data-view="dispatch" hidden>
+      <div class="dsp">
+        <section class="card pool" aria-labelledby="poolH">
+          <div class="card__hd"><div><h2 class="card__h" id="poolH">To schedule</h2><p class="card__s" id="poolS"></p></div></div>
+          <ul class="pool__list" id="pool"></ul>
+          <p class="pool__how">Drag a card onto a crew, or pick it to see the best slots. Skills, clashes and travel time are checked for you.</p>
+        </section>
+        <section class="card disp" aria-labelledby="dispH">
+          <div class="card__hd">
+            <div><h2 class="card__h" id="dispH">Crews today</h2><p class="card__s" id="dispS"></p></div>
+            <ul class="legend" aria-label="Legend">
+              <li><i class="t-svc"></i>Servicing</li><li><i class="t-cln"></i>Cleaning</li><li><i class="t-flt"></i>Call-out</li><li><i class="t-ins"></i>Installation</li><li><i class="t-smk"></i>Smoke control</li><li><i class="trv-k"></i>Travel</li>
+            </ul>
+          </div>
+          <div class="lanes" id="lanes">
+            <div class="lanes__in"><div class="hours" id="hours" aria-hidden="true"></div><div class="lanes__body" id="lanesBody"></div><i class="now" id="now" aria-hidden="true"><b>--:--</b></i></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ===================== L05 BUILDINGS ===================== -->
+    <div data-view="buildings" hidden>
+      <div class="md">
+        <section class="card md__list" aria-labelledby="ctH">
+          <div class="card__hd"><div><h2 class="card__h" id="ctH">Buildings under contract</h2><p class="card__s" id="ctS"></p></div></div>
+          <div class="mlist" role="tablist" aria-orientation="vertical" aria-label="Buildings" id="ctList"></div>
+        </section>
+        <div class="md__det stack" id="ctDet" role="tabpanel" tabindex="-1"></div>
+      </div>
+    </div>
+
+    <!-- ===================== L06 REPORTS ===================== -->
+    <div data-view="reports" hidden>
+      <div class="md">
+        <section class="card md__list" aria-labelledby="rpH">
+          <div class="card__hd"><div><h2 class="card__h" id="rpH">Service reports</h2><p class="card__s" id="rpS"></p></div></div>
+          <div class="mlist" role="tablist" aria-orientation="vertical" aria-label="Reports" id="rpList"></div>
+        </section>
+        <section class="card md__det" id="rpDet" role="tabpanel" tabindex="-1"></section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- detail drawer: jobs and equipment -->
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drH" hidden>
+  <div class="drawer__in">
+    <button class="drawer__x" type="button" data-close aria-label="Close"><svg><use href="#x"/></svg></button>
+    <div id="drBody"></div>
+  </div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+<div class="ghost" id="ghost" aria-hidden="true" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Newsroom · Department of Education (concept)</title>
+<meta name="description" content="News from the Department of Education on learners, teachers and schools.">
+<meta name="theme-color" content="#0b2e23">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="news">
+<script src="js/shell.js"></script>
+
+<main id="main">
+  <section class="ph" aria-labelledby="phH">
+    <div class="ph__media" aria-hidden="true"><img src="media/ph/news.webp" width="1600" height="1198" alt="" decoding="async"></div>
+    <svg class="guil" aria-hidden="true"></svg>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Newsroom</span></li></ol></nav>
+      <h1 class="ph__h" id="phH">News from the Department</h1>
+      <p class="ph__p">Stories on learners, teachers and schools, in the words DepEd published them.</p>
+      
+    </div>
+  </section>
+  <section class="sec" aria-labelledby="nlH" style="padding-top:44px">
+    <div class="wrap">
+      <div class="feat" id="newsFeat" role="region" aria-roledescription="carousel" aria-label="Featured stories"></div>
+      <h2 class="sr" id="nlH">All news</h2>
+      <div class="bar">
+        <div class="pills" role="radiogroup" aria-label="Category" id="newsPills" style="margin-top:0"></div>
+        <label class="fsearch"><span class="sr">Search the newsroom</span><svg><use href="#i-search"/></svg><input type="search" id="newsQ" placeholder="Search news" autocomplete="off"></label>
+      </div>
+      <p class="count" id="newsCount" aria-live="polite"></p>
+      <ul class="ngrid" id="newsGrid" data-page="9" style="margin-top:12px"></ul>
+      <div class="more"><button class="btn btn--ghost" type="button" id="newsMore" hidden>Show more news</button></div>
+    </div>
+  </section>
+</main>
+
+<script>DFA.bottom()</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
