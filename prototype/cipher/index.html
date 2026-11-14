@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cipher — AI Control Room</title>
+<meta name="description" content="Cipher is an AI control room: six divisions (intelligence, operations, technology, creative, knowledge and monitoring) working as one intelligence.">
+<meta name="theme-color" content="#e7e3f4">
+<link rel="icon" href="media/cipher-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Cipher, an AI control room (concept by Monarch Labs). Look: lavender mist, deep indigo and an electric violet; the
+     control room sits in a white bezel with tabs cut into its corners. One idea carries it: the decoder wheel. The six
+     divisions sit on its outer ring; the C emblem at its core turns its opening to whichever division is speaking, and an
+     objective spins the letter ring until it locks onto the divisions it needs. No bars, pills or line charts: progress is
+     the C filling, activity is a signal of capsules, deadlines are beads on a horizon. All figures are SAMPLE data.
+     Room backdrop: Milad Fakurian on Unsplash (purple and pink abstract wave). -->
+
+<!-- preloader: identical on every route. The C draws itself, the name decodes, the channel count runs to 100 -->
+<div class="pre" id="pre" aria-hidden="true">
+  <svg class="pre-mark" viewBox="0 0 48 48"><path pathLength="1" d="M33.19 14.81A13 13 0 1 0 33.19 33.19"/><circle cx="24" cy="24" r="4"/></svg>
+  <p class="pre-name" data-w="CIPHER">CIPHER</p>
+  <p class="pre-line"><span>Securing channel</span><b class="pre-num">00</b></p>
+</div>
+
+<main id="app">
+<!-- ================= #control (home) ================= -->
+<div class="view" data-view="control">
+
+  <section class="room" aria-label="Control room">
+    <div class="bezel">
+      <div class="screen">
+        <div class="screen-bg" aria-hidden="true"></div>
+
+        <header class="top">
+          <a class="brand" href="#control" aria-label="Cipher, control room">
+            <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M33.19 14.81A13 13 0 1 0 33.19 33.19"/><circle cx="24" cy="24" r="4"/></svg>
+            <span>Cipher</span>
+          </a>
+          <nav class="tabs" aria-label="Sections">
+            <a href="#control" aria-current="page">Control room</a>
+            <a href="#dashboard">Dashboard</a>
+            <button type="button" data-go="ledger">Ledger</button>
+            <button type="button" data-go="divisions">Divisions</button>
+            <button type="button" data-go="protocol">Protocol</button>
+          </nav>
+        </header>
+
+        <!-- top-right tab cut into the screen -->
+        <div class="notch tr">
+          <span class="seal" title="End-to-end encrypted"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l6 2.5v4.6c0 4-2.6 7-6 8.4-3.4-1.4-6-4.4-6-8.4V4.5z"/><path d="M7.2 10l2 2 3.8-4"/></svg><span>Encrypted</span></span>
+          <span class="clock" aria-label="Local time"><time data-clock>--:--</time><small>Local</small></span>
+          <span class="sir" aria-label="Signed in as Sir">S</span>
+          <button class="brief" type="button" data-brief>Brief me <i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5"/></svg></i></button>
+        </div>
+
+        <div class="lead">
+          <p class="eye"><i class="live-l" aria-hidden="true"></i><span>All six divisions online</span><span class="sep">/</span><span data-cipher="REAL TIME">REAL TIME</span></p>
+          <h1 class="hi"><span class="hi-a"><span data-greet>Good evening</span>, Sir.</span>
+            <span class="hi-b" data-await>Three matters await your judgement.</span></h1>
+          <form class="ask" data-ask="control" autocomplete="off">
+            <label for="objective"><span>Objective</span><small>Cipher routes it to the divisions it needs</small></label>
+            <div class="ask-row">
+              <input id="objective" name="objective" type="text" placeholder="State the objective, Sir" maxlength="140" required>
+              <button type="submit" aria-label="Route the objective"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            </div>
+          </form>
+          <p class="try"><span>Try</span>
+            <button type="button" data-try>Plan the Q1 product launch</button><i>/</i>
+            <button type="button" data-try>Audit the website for security gaps</button><i>/</i>
+            <button type="button" data-try>Research competitors and design a brand response</button>
+          </p>
+          <a class="enter" href="#dashboard"><i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i><span>Enter the control room</span></a>
+        </div>
+
+        <!-- the decoder wheel (built by app.js) -->
+        <div class="wheel" data-wheel>
+          <svg viewBox="-340 -340 680 680" role="img" aria-label="The six divisions around the Cipher core"></svg>
+        </div>
+
+        <!-- division index on the right edge, as the reference's scroll index -->
+        <nav class="rail" aria-label="Divisions">
+          <b data-rail-a>01</b>
+          <span class="rail-line"><i data-rail-mark></i></span>
+          <b>06</b>
+        </nav>
+
+        <!-- bottom-left tab: the three figures that matter -->
+        <div class="notch bl">
+          <dl class="tally">
+            <div><dt data-n="objectives">05</dt><dd>Objectives<br>in flight</dd></div>
+            <div><dt data-n="decisions">03</dt><dd>Decisions<br>awaiting you</dd></div>
+            <div><dt data-n="risks">02</dt><dd>Risks<br>flagged</dd></div>
+          </dl>
+        </div>
+
+        <!-- the reading: decisions awaiting, a routed objective, or the division in focus -->
+        <aside class="card" data-card aria-live="polite"></aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ledger ================= -->
+  <section class="sect" id="ledger" aria-labelledby="h-ledger">
+    <header class="sect-head">
+      <p class="eye-d">L / The ledger</p>
+      <h2 id="h-ledger">Everything in motion, <em>at a glance.</em></h2>
+      <p class="sect-lede">Monitoring keeps the ledger. It reports what the connected tools can show and nothing more: every figure here is sample data.</p>
+    </header>
+    <div class="inst-grid">
+      <article class="inst inst-obj" aria-labelledby="h-obj">
+        <span class="inst-tab">L.01</span>
+        <h3 id="h-obj">Objectives</h3>
+        <p class="inst-sub">Each C fills as the work closes. The opening is what remains.</p>
+        <ul class="objs" data-objs></ul>
+      </article>
+      <article class="inst inst-sig" aria-labelledby="h-sig">
+        <span class="inst-tab">L.02</span>
+        <h3 id="h-sig">Signal <small>last 24 hours</small></h3>
+        <p class="inst-sub">Requests handled each hour, across all divisions.</p>
+        <div class="sig" data-sig></div>
+        <p class="sig-foot" data-sig-foot></p>
+      </article>
+      <article class="inst inst-hor" aria-labelledby="h-hor">
+        <span class="inst-tab">L.03</span>
+        <h3 id="h-hor">Horizon <small>next 14 days</small></h3>
+        <p class="inst-sub">Deadlines rise and set across the fortnight. Larger beads carry more work.</p>
+        <div class="hor" data-hor></div>
+      </article>
+      <article class="inst inst-watch" aria-labelledby="h-watch">
+        <span class="inst-tab">L.04</span>
+        <h3 id="h-watch">Watch list</h3>
+        <p class="inst-sub">Bottlenecks, by pressure. <span class="vk"><i class="v"></i>verified</span> <span class="vk"><i class="a"></i>assumed</span></p>
+        <ol class="watch" data-watch></ol>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= divisions ================= -->
+  <section class="sect" id="divisions" aria-labelledby="h-div">
+    <header class="sect-head">
+      <p class="eye-d">D / The divisions</p>
+      <h2 id="h-div">Six specialists. <em>One intelligence.</em></h2>
+      <p class="sect-lede">Each division has a remit. Cipher decides which ones an objective needs, and has them work as one.</p>
+    </header>
+    <div class="dossiers" data-dossiers></div>
+  </section>
+
+  <!-- ================= protocol ================= -->
+  <section class="sect" id="protocol" aria-labelledby="h-pro">
+    <header class="sect-head">
+      <p class="eye-d">P / Protocol</p>
+      <h2 id="h-pro">How Cipher <em>conducts itself.</em></h2>
+    </header>
+    <div class="pro">
+      <ol class="rules">
+        <li><b>P.01</b>Understand the objective before initiating a task.</li>
+        <li><b>P.02</b>Identify which division, or combination of divisions, is required.</li>
+        <li><b>P.03</b>Analyse before recommending.</li>
+        <li><b>P.04</b>Prioritise accuracy, efficiency and practical execution.</li>
+        <li><b>P.05</b>Present complex information in structured, understandable formats.</li>
+        <li><b>P.06</b>Proactively identify risks, opportunities and improvements.</li>
+        <li><b>P.07</b>Never fabricate information or claim unperformed actions are complete.</li>
+        <li><b>P.08</b>Maintain confidentiality and protect sensitive information.</li>
+        <li><b>P.09</b>Deliver actionable recommendations rather than generic explanations.</li>
+      </ol>
+      <div class="voice">
+        <p class="voice-k">Primary directive</p>
+        <p class="voice-q">One unified intelligence, not six disconnected assistants.</p>
+        <p class="voice-k">Manner</p>
+        <p class="voice-t">Addresses you as Sir. Composed, concise and analytical, with a British reserve and the occasional dry remark.</p>
+        <p class="voice-s">“I have arranged the facts in order of inconvenience, Sir.”</p>
+      </div>
+    </div>
+    <footer class="foot">
+      <span class="foot-b"><svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M33.19 14.81A13 13 0 1 0 33.19 33.19"/><circle cx="24" cy="24" r="4"/></svg>Cipher</span>
+      <span>AI control room · a concept by Monarch Labs</span>
+      <span>All figures are sample data</span>
+    </footer>
+  </section>
+</div>
+
+<!-- ================= #dashboard: the working console ================= -->
+<!-- Same frame as the hero (white bezel, cut tabs), on a light lavender floor. Left: the command line with a small
+     decoder wheel and the conversation. Middle: the six divisions (click one to focus everything on it) and the
+     objectives. Right: decisions as a deck, and the wire (a simulated feed of sample events). -->
+<div class="view" data-view="dashboard">
+  <section class="room desk" aria-label="Dashboard">
+    <div class="bezel">
+      <div class="screen light">
+        <header class="top">
+          <a class="brand" href="#control" aria-label="Cipher, back to the control room overview">
+            <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M33.19 14.81A13 13 0 1 0 33.19 33.19"/><circle cx="24" cy="24" r="4"/></svg>
+            <span>Cipher</span>
+          </a>
+          <nav class="tabs" aria-label="Views">
+            <a href="#control">Control room</a>
+            <a href="#dashboard" aria-current="page">Dashboard</a>
+          </nav>
+        </header>
+        <div class="notch tr">
+          <span class="seal" title="End-to-end encrypted"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l6 2.5v4.6c0 4-2.6 7-6 8.4-3.4-1.4-6-4.4-6-8.4V4.5z"/><path d="M7.2 10l2 2 3.8-4"/></svg><span>Encrypted</span></span>
+          <span class="clock" aria-label="Local time"><time data-clock>--:--</time><small>Local</small></span>
+          <span class="sir" aria-label="Signed in as Sir">S</span>
+          <button class="brief" type="button" data-brief>Brief me <i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5"/></svg></i></button>
+        </div>
+
+        <div class="d-head">
+          <div class="d-hi">
+            <h1><span data-greet>Good evening</span>, Sir.</h1>
+            <p class="d-status" data-dstatus></p>
+          </div>
+          <div class="d-sig" aria-label="Requests per hour, last 24 hours">
+            <p class="d-k"><span>Signal</span><span>24 h</span></p>
+            <div class="d-sig-c" data-dsig aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <section class="pane cmd" aria-labelledby="h-cmd">
+            <header class="p-head"><h2 id="h-cmd"><i class="live" aria-hidden="true"></i>Cipher</h2><span class="p-note">Secure channel</span></header>
+            <div class="d-wheel" data-dwheel><svg viewBox="-340 -340 680 680" role="img" aria-label="Decoder wheel: the six divisions"></svg></div>
+            <ol class="thread" data-thread aria-live="polite"></ol>
+            <form class="ask d-ask" data-ask="dashboard" autocomplete="off">
+              <label for="d-objective" class="sr">Objective</label>
+              <div class="ask-row">
+                <input id="d-objective" type="text" placeholder="State the objective, Sir" maxlength="140" required>
+                <button type="submit" aria-label="Route the objective"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+              </div>
+            </form>
+          </section>
+
+          <section class="pane mods-p" aria-labelledby="h-mods">
+            <span class="p-tab">D</span>
+            <header class="p-head"><h2 id="h-mods">Divisions</h2><span class="p-note" data-focus>All divisions</span></header>
+            <div class="mods" data-mods></div>
+          </section>
+
+          <section class="pane objs-p" aria-labelledby="h-dobj">
+            <span class="p-tab">L.01</span>
+            <header class="p-head"><h2 id="h-dobj">Objectives</h2><span class="p-note">The C fills as work closes</span></header>
+            <ul class="objs" data-objs data-focusable></ul>
+          </section>
+
+          <section class="pane deck-p" aria-labelledby="h-deck">
+            <span class="p-tab"><b data-n="decisions">03</b></span>
+            <header class="p-head"><h2 id="h-deck">Your judgement</h2></header>
+            <div class="deck" data-deck></div>
+            <p class="log-k"><span>Decided today</span></p>
+            <ol class="log" data-log></ol>
+          </section>
+
+          <section class="pane wire-p" aria-labelledby="h-wire">
+            <span class="p-tab">W</span>
+            <header class="p-head"><h2 id="h-wire">Wire</h2><span class="p-note">Simulated · sample</span></header>
+            <ol class="wire" data-wire aria-live="polite"></ol>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

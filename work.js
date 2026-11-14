@@ -4,13 +4,29 @@
    category opens on that photo: the service name, its line, an index, then each project.
    The tabs, or "Next service" at the end, switch category with a crossfade; Back, the X, Escape or the browser's
    Back button zoom out into the word again, on whichever service was open.
-   Projects: Sentron Ops, DepEd Philippines, Howely, DFA Philippines, Nowhere, Courtly and Steady, written as Monarch studies (overview, challenge / insight / solution, the
+   Projects: Cipher, Sentron Ops, DepEd Philippines, Howely, DFA Philippines, Nowhere, Courtly and Steady, written as Monarch studies (overview, challenge / insight / solution, the
    four-phase approach, what we built). A project opens in two columns: its live HTML prototype
    (prototype/<id>/) on the left with four more screens (work/<id>-n.webp) below it, and the study on the right in its
    own scroll; picking a screen loads that page in the prototype. */
 (() => {
   "use strict";
   const S = {
+    cipher: { name: "Cipher", field: "Product design · AI operations", status: "Concept · 2026",
+      title: "An AI control room where six specialist divisions work as one intelligence, and every decision still waits for you.",
+      caps: ["Product strategy", "AI experience design", "Dashboard design", "Prototype"],
+      pages: [["Control room", "index.html#control"], ["Dashboard", "index.html#dashboard"], ["Ledger", "index.html#ledger"], ["Divisions", "index.html#divisions"], ["Protocol", "index.html#protocol"]],
+      overview: "Cipher is an AI chief of staff, built as a control room. Six divisions sit behind it: Intelligence, Operations, Technology, Creative Studio, Knowledge Base and System Monitoring, and Cipher decides which of them an objective needs. This concept gives that system a face: a decoder wheel that locks onto the divisions an objective calls for, a dashboard where you talk to Cipher, approve or defer its decisions and watch the divisions report in, and a ledger that tracks every objective. It speaks like a composed British aide, never claims work it has not done, and keeps what it knows apart from what it assumes.",
+      story: ["AI assistants arrive as a chat box: one voice, no sense of who is working on what, and no way to tell a plan from work actually done.",
+        "People don’t want more answers. They want <em>a staff they can see, and the final say</em>.",
+        "Show the divisions at work, route every objective in plain sight, and leave every decision with the person in charge."],
+      steps: [["Research", "Started from the client’s operating brief: six divisions, nine operating rules and a voice that addresses the user as Sir. Every figure in the prototype is labelled sample data."],
+        ["Direction", "Took the palette from a lavender health app and the frame from a travel dashboard, then replaced the usual bars, pills and line charts with one idea: a decoder wheel."],
+        ["Brand", "A C emblem whose opening is the wheel’s window, used as the logo, the core of the wheel and the progress gauge, in lavender, deep indigo and electric violet, set in Outfit."],
+        ["Build", "Hand-built in HTML, CSS and JavaScript as one hash-routed page that opens from a file. The control room and the dashboard share one state, so a decision approved in one moves the other."]],
+      built: [["Decoder wheel", "The six divisions on a ring around the C; an objective spins the letter ring until it locks onto the divisions it needs."],
+        ["Dashboard", "Talk to Cipher, focus on one division, and watch the objectives, the wire and the decisions move together."],
+        ["Your judgement", "Decisions as a deck: approve and the card flies off, defer and it tucks under, and the day’s choices are logged."],
+        ["Instruments", "C gauges for objectives, a capsule signal, a horizon of deadlines and a watch list that marks what is verified and what is assumed."]] },
     howely: { name: "Howely", field: "Web design · Logistics, Singapore", status: "Concept · 2026",
       title: "A logistics website where one parcel carries you from port to porch.",
       caps: ["Brand refresh", "Web design", "3D motion", "Prototype"],
@@ -158,11 +174,11 @@
   };
   /* the four approach steps, Monarch's phases */
   /* the four screens under the prototype (indexes into pages; the prototype opens on page 0) */
-  const FOUR = { capture: [1, 2, 4, 5], dost: [1, 2, 3, 4], sentron: [1, 2, 3, 5], deped: [1, 2, 3, 4], howely: [1, 2, 3, 4], dfa: [1, 2, 3, 5], nowhere: [1, 2, 5, 6], courtly: [1, 2, 3, 4], steady: [1, 2, 3, 4] };
+  const FOUR = { cipher: [1, 2, 3, 4], capture: [1, 2, 4, 5], dost: [1, 2, 3, 4], sentron: [1, 2, 3, 5], deped: [1, 2, 3, 4], howely: [1, 2, 3, 4], dfa: [1, 2, 3, 5], nowhere: [1, 2, 5, 6], courtly: [1, 2, 3, 4], steady: [1, 2, 3, 4] };
   const PHASE = ["Frame", "Find", "Form", "Field"], STORY = ["Challenge", "Insight", "Solution"];
   const img = (f, w, h, alt) => `<img src="work/${f}" width="${w}" height="${h}" alt="${alt}" loading="lazy" decoding="async">`;
   /* service → projects (a project can sit in more than one); order: Strategy, Experience, Intelligence, Knowledge, Automation, Creative */
-  const BY = [["nowhere"], ["capture", "dost", "sentron", "deped", "howely", "dfa", "courtly", "steady"], ["dost", "sentron", "steady", "nowhere"], ["capture", "dost", "nowhere"], ["sentron", "courtly"], ["capture", "howely", "steady", "nowhere"]];
+  const BY = [["cipher", "nowhere"], ["capture", "dost", "sentron", "deped", "howely", "dfa", "courtly", "steady"], ["cipher", "dost", "sentron", "steady", "nowhere"], ["capture", "dost", "nowhere"], ["cipher", "sentron", "courtly"], ["capture", "howely", "steady", "nowhere"]];
 
   const root = document.documentElement, work = document.getElementById("work");
   if (!work) return;
@@ -228,7 +244,7 @@
     </article>`;
   };
   /* the service page shows its projects as blocks; a block opens that project */
-  const CARD = { capture: ["capture-0", 0, "Capture photography studio home page"], dost: ["dost-0", 0, "DOST Philippines home page"], sentron: ["sentron-0", 0, "Sentron Ops overview with delivery metrics and live charts"], deped: ["deped-0", 0, "DepEd Philippines home page"], howely: ["howely-0", 0, "Howely home page"], dfa: ["dfa-0", 0, "DFA Philippines home page"], nowhere: ["nowhere-0", 0, "Nowhere landing page"], courtly: ["courtly-phones", 1, "Courtly app screens on three phones"], steady: ["steady-phones", 1, "Steady app screens on three phones"] };
+  const CARD = { cipher: ["cipher-0", 0, "Cipher AI control room with its decoder wheel"], capture: ["capture-0", 0, "Capture photography studio home page"], dost: ["dost-0", 0, "DOST Philippines home page"], sentron: ["sentron-0", 0, "Sentron Ops overview with delivery metrics and live charts"], deped: ["deped-0", 0, "DepEd Philippines home page"], howely: ["howely-0", 0, "Howely home page"], dfa: ["dfa-0", 0, "DFA Philippines home page"], nowhere: ["nowhere-0", 0, "Nowhere landing page"], courtly: ["courtly-phones", 1, "Courtly app screens on three phones"], steady: ["steady-phones", 1, "Steady app screens on three phones"] };
   const cardHTML = (id, j) => {
     const d = S[id], c = CARD[id];
     const media = c[1] ? `<span class="w-shot phones">${img(c[0] + ".webp", 1200, 750, c[2])}</span>`
