@@ -162,7 +162,7 @@
   const PHASE = ["Frame", "Find", "Form", "Field"], STORY = ["Challenge", "Insight", "Solution"];
   const img = (f, w, h, alt) => `<img src="work/${f}" width="${w}" height="${h}" alt="${alt}" loading="lazy" decoding="async">`;
   /* service → projects (a project can sit in more than one); order: Strategy, Experience, Intelligence, Knowledge, Automation, Creative */
-  const BY = [["nowhere"], ["capture", "dost", "sentron", "deped", "howely", "dfa", "courtly", "steady"], ["dost", "sentron", "steady", "nowhere"], ["capture", "dost", "nowhere"], ["courtly"], ["capture", "howely", "steady", "nowhere"]];
+  const BY = [["nowhere"], ["capture", "dost", "sentron", "deped", "howely", "dfa", "courtly", "steady"], ["dost", "sentron", "steady", "nowhere"], ["capture", "dost", "nowhere"], ["sentron", "courtly"], ["capture", "howely", "steady", "nowhere"]];
 
   const root = document.documentElement, work = document.getElementById("work");
   if (!work) return;
