@@ -247,7 +247,7 @@
           : `<button class="w-next" type="button" data-k="${nx}"><small>Next service</small><span>${SV[nx].name}</span><i aria-hidden="true">→</i></button>`}
         <div class="w-foot-row">
           <p class="w-note">Selected projects. Each one opens as a working prototype.</p>
-          <a class="btn dark" href="contact.html">Start a project <i aria-hidden="true">↗</i></a>
+          <a class="btn dark" href="#contact">Start a project <i aria-hidden="true">↗</i></a>
         </div>
       </footer>`;
   };
@@ -413,7 +413,7 @@
       root.classList.remove("work-open", "zoom", "work-closing");
       word.style.transformOrigin = "";
       busy = false;
-      if (/^#work-/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
+      if (/^#work-/.test(location.hash)) history.replaceState(null, "", "#home");
       if (window.MLHero) MLHero.start();
       if (see) see.focus({ preventScroll: true });
     };
@@ -443,6 +443,19 @@
      "back" would only step the iframe to its previous screen (Courtly does this). close() strips the #work- hash. */
   const leave = () => { pushed = false; close(); };
   addEventListener("popstate", () => { if (isOpen() && !/^#work-/.test(location.hash)) { pushed = false; close(); } });
+  /* for preload.js: going to another view (#studio, #capabilities, #contact) shuts the work view at once, under the
+     loader panel, leaving the hero on the service it was showing */
+  window.MLWork = { shut: () => {
+    if (!isOpen()) return;
+    clearTimeout(reveal); unsettle();
+    if (window.MLHero && MLHero.i !== cur) MLHero.jump(cur);
+    work.hidden = true;
+    work.classList.remove("full", "swap", "ready", "under");
+    work.style.clipPath = ""; layers[front].style.transform = "";
+    root.classList.remove("work-open", "zoom", "work-closing", "work-still", "hot");
+    word.style.transformOrigin = "";
+    busy = false; pushed = false;
+  } };
 
   /* the word itself: only the letters of the current service count as the target */
   const onWord = e => { const r = tOf(window.MLHero ? MLHero.i : 0).getBoundingClientRect(); return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom; };

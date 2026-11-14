@@ -113,29 +113,6 @@
   };
   if (!direct) requestAnimationFrame(tick);
 
-  /* leaving: a link to another page of the site wipes the panel in from the left, then navigates.
-     New tabs, modified clicks and the current page's own link are left alone. */
-  const leave = href => {
-    if (still) { location.href = href; return; }
-    pre.classList.remove("gone", "leave");
-    pre.classList.add("snap", "from-left");
-    flick();
-    num.hidden = false; num.textContent = "0%"; decode(0);
-    void pre.offsetWidth;
-    pre.classList.remove("snap");
-    pre.classList.add("leave");
-    requestAnimationFrame(() => pre.classList.remove("from-left", "done"));
-    setTimeout(() => { location.href = href; }, 950);
-  };
-  document.addEventListener("click", e => {
-    const a = e.target.closest("a[href]");
-    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target) return;
-    const href = a.getAttribute("href");
-    if (!/^[\w./-]+\.html$/.test(href)) return;
-    e.preventDefault();
-    if (a.getAttribute("aria-current") === "page" || !pre.classList.contains("done")) return;
-    leave(a.href);
-  });
   /* the same page change without leaving the page (work.js: opening a project, back to its service): the panel wipes
      in from the left exactly as for a link, task() draws the new view under it, the name decodes and the percentage
      counts up while wait() (the project's live page) loads, at least MIN, at most MAX, then the panel wipes off
@@ -175,6 +152,38 @@
     }, 950);
   });
   window.MLPre = { cover };
+
+  /* the views: one page, #studio, #capabilities and #contact (#home, and anything else, #work-… included, is home). A link to
+     another view wipes the panel in from the left, swaps the view under it, then wipes off, as between pages. New
+     tabs, modified clicks and the current view's own link are left alone. Back / forward move between views the same way. */
+  const TITLES = { home: document.title, studio: "Studio — Monarch Labs", capabilities: "Capabilities — Monarch Labs", contact: "Contact — Monarch Labs" };
+  const viewOf = h => { const k = (h || "").replace(/^#/, ""); return TITLES[k] ? k : "home"; };
+  let view = "";
+  const setView = v => {
+    if (v !== "home" && window.MLWork) MLWork.shut();
+    Object.keys(TITLES).forEach(k => root.classList.toggle("v-" + k, k === v));
+    view = v; document.title = TITLES[v];
+    document.querySelectorAll('.bar a[href^="#"]').forEach(a => {
+      const on = a.getAttribute("href") === "#" + v;
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      if (a.classList.contains("btn")) { if (on) { a.setAttribute("aria-disabled", "true"); a.tabIndex = -1; } else { a.removeAttribute("aria-disabled"); a.removeAttribute("tabindex"); } }
+    });
+    document.dispatchEvent(new CustomEvent("ml:view", { detail: v }));
+  };
+  setView(viewOf(location.hash));
+  if (!location.hash) history.replaceState(null, "", "#home");   /* the address always names the view */
+  const goTo = v => { if (v !== view) cover(() => setView(v)); };
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target) return;
+    const k = a.getAttribute("href").slice(1);
+    if (!TITLES[k]) return;
+    e.preventDefault();
+    if (k === view || !pre.classList.contains("done") || pre.classList.contains("leave")) return;
+    history.pushState(null, "", "#" + k);
+    goTo(k);
+  });
+  addEventListener("popstate", () => goTo(viewOf(location.hash)));
 
   /* back/forward from the page cache: lift the panel again instead of staying covered */
   addEventListener("pageshow", e => { if (e.persisted) { pre.classList.remove("leave", "from-left"); pre.classList.add("done"); } });

@@ -11,8 +11,8 @@
   "use strict";
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const q = s => [...document.querySelectorAll(s)];
-  const words = q(".reel>span"), groups = [q(".desc span"), q(".ticks i")];
-  const count = document.querySelector(".count b");
+  const words = q(".reel>span"), groups = [q(".desc span"), q('.side-r[data-v="home"] .ticks i')];
+  const count = document.querySelector('.side-r[data-v="home"] .count b');
   const HOLD = 7200, SHOT = 2400, n = words.length;
   /* reel position of word k when service i is current: 0 = middle, 1 = below, -1 = above, 2 = parked
      out of sight below. Forward: the word leaving the top runs on to -2, then jumps (no transition) to park
@@ -117,22 +117,24 @@
       if (shot % (HOLD / SHOT)) light(); else go(1);
     }, SHOT);
   };
+  const workOpen = () => document.documentElement.classList.contains("work-open") || !document.documentElement.classList.contains("v-home");   /* the work view and the other views scroll on their own */
   jump(2);                                                   /* open on Intelligence */
   /* wait for the preloader to lift (ml:ready from preload.js); a fallback starts it anyway */
   const pre = document.getElementById("pre");
   const loading = () => pre && !pre.classList.contains("done");
   if (loading()) {
-    const go1 = () => { clearTimeout(fb); if (!document.documentElement.classList.contains("work-open")) start(); };   /* not under an open work view */
+    const go1 = () => { clearTimeout(fb); if (!workOpen()) start(); };   /* not under an open work view or on another view */
     const fb = setTimeout(go1, 6500);
     document.addEventListener("ml:ready", go1, { once: true });
   } else start();
   /* for work.js: pause while the work view is open, pick up again on the service it closes on */
+  /* another view (#studio, #capabilities, #contact): the cycle rests, and picks up again on the way back */
+  document.addEventListener("ml:view", e => { if (e.detail === "home" && !workOpen()) start(); else clearInterval(clock); });
   window.MLHero = { get i() { return i; }, stop: () => clearInterval(clock), start, jump };
 
   /* scroll, swipe or keys move the services: down = next, up = previous. One step per gesture (a short
      lock covers the reel's 1s move). */
   let lock = 0, acc = 0, accT;
-  const workOpen = () => document.documentElement.classList.contains("work-open");   /* the work view scrolls on its own */
   const step = dir => {
     const now = performance.now();
     if (workOpen() || loading() || now < lock) return;
