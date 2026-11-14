@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capture: photography for the days you'll want back</title>
+<meta name="description" content="Capture is a photography studio for weddings, portraits, brands and events.">
+<meta name="theme-color" content="#0d1b2e">
+<link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Ms+Madi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!-- Photographs: Unsplash (illustrative). Capture is a Monarch Labs concept studio; client names are illustrative. -->
+</head>
+<body>
+<!-- shutter: the same loader on every load and route change. A slit of light opens across the middle, then the two leaves part -->
+<div class="sh" id="sh" aria-hidden="true">
+  <div class="sh__leaf sh__leaf--t"></div>
+  <div class="sh__leaf sh__leaf--b"></div>
+  <div class="sh__core">
+    <span class="sh__word"><b>Capture</b></span>
+    <span class="sh__count"><b id="shN">00</b><i>Exposing</i></span>
+  </div>
+  <i class="sh__slit"></i>
+</div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- header: menu left, the wordmark in the middle with the subject it captures changing beside it, booking right -->
+<header class="hd" id="hd">
+  <button class="hd__menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><i></i><span>Menu</span></button>
+  <a class="hd__logo" href="#home" aria-label="Capture, home">
+    <b>Capture</b>
+  </a>
+  <a class="hd__book" href="#book" data-go="book">Book a date</a>
+</header>
+
+<!-- menu: a contact sheet of the site, frames numbered like a roll -->
+<div class="menu" id="menu" hidden>
+  <div class="menu__bg" aria-hidden="true"><img src="media/h1.webp" alt="" data-bg="home" loading="lazy" decoding="async"><img src="media/w1a.webp" alt="" data-bg="work" loading="lazy" decoding="async"><img src="media/cw1.webp" alt="" data-bg="services" loading="lazy" decoding="async"><img src="media/ce1.webp" alt="" data-bg="journal" loading="lazy" decoding="async"><img src="media/cta.webp" alt="" data-bg="book" loading="lazy" decoding="async"></div>
+  <div class="menu__in">
+    <p class="menu__roll">Roll 01 · Capture</p>
+    <ol class="menu__list">
+      <li><a href="#home" data-go="home"><small>Fr 01</small><span>Home</span></a></li>
+      <li><a href="#work" data-go="work"><small>Fr 02</small><span>Work</span></a></li>
+      <li><a href="#services" data-go="services"><small>Fr 03</small><span>Services</span></a></li>
+      <li><a href="#journal" data-go="journal"><small>Fr 04</small><span>Field notes</span></a></li>
+      <li><a href="#book" data-go="book"><small>Fr 05</small><span>Book a date</span></a></li>
+    </ol>
+    <p class="menu__foot">Weddings · Portraits · Commercial · Events</p>
+  </div>
+</div>
+
+<!-- frame counter: where you are on the roll -->
+<div class="fc" id="fc" aria-hidden="true"><b id="fcN">01</b><i>/</i><span id="fcT">10</span><em id="fcL">Opening</em></div>
+
+<main id="main">
+<div data-view="home">
+
+  <!-- FR 01 · hero: the headline holds still while the frames drift at their own depth -->
+  <section class="hero" data-frame="Opening" aria-labelledby="h-hero">
+    <div class="hero__copy">
+      <p class="eyebrow">Photography studio · Est. 2014</p>
+      <h1 id="h-hero" class="d-xl"><span class="ln"><span>The days</span></span><span class="ln"><span>you'll want</span></span><span class="ln"><span>back.</span></span></h1>
+      <div class="hero__sub">
+        <p>Weddings, portraits, brands and events, photographed by people who notice first and stage last.</p>
+        <div class="hero__cta"><a class="btn btn--ink" href="#book" data-go="book"><span>Book a date</span></a><a class="lnk" href="#work" data-go="work">See the work</a></div>
+      </div>
+    </div>
+    <figure class="ph hero__f hero__f--1" data-speed="-.22"><img src="media/h1.webp" alt="A bride's veil lifted by the wind" width="1067" height="1600"></figure>
+    <figure class="ph hero__f hero__f--2" data-speed=".14"><img src="media/h4.webp" alt="A festival crowd under blue light, hands raised" width="1143" height="1600"></figure>
+    <figure class="ph hero__f hero__f--3" data-speed="-.08"><img src="media/h5.webp" alt="A pale stairwell with soft daylight" width="1067" height="1600"></figure>
+    <figure class="ph hero__f hero__f--4" data-speed="-.05"><img src="media/h3.webp" alt="A speckled ceramic bowl on a white table" width="1600" height="1203"></figure>
+    <p class="hero__meta mono" aria-hidden="true"><span>f/2.0</span><span>1/250</span><span>ISO 200</span></p>
+  </section>
+
+  <!-- FR 02 · the statement comes into focus as you read -->
+  <section class="state" data-frame="Approach" aria-label="Our approach">
+    <p class="state__txt d-lg" id="focus">We photograph <mark>weddings</mark>, <mark>portraits</mark>, <mark>products</mark> and <mark>the nights that matter</mark>, with the patience to wait for the one frame that tells the whole story, and the discipline to deliver every other frame on time.</p>
+  </section>
+
+  <!-- FR 03–06 · four disciplines, each its own small collage -->
+  <section class="svc" id="services" aria-labelledby="h-svc">
+    <header class="svc__head" data-frame="Services">
+      <p class="eyebrow">What we photograph</p>
+      <h2 id="h-svc" class="d-md">Four practices, one eye.</h2>
+    </header>
+
+    <article class="ch ch--a" data-frame="Weddings">
+      <div class="ch__txt">
+        <span class="ch__n mono">(01)</span>
+        <h3 class="d-lg">Weddings</h3>
+        <p>From the first look to the last song. Two photographers, no staged moments, and a finished edit in your hands within six weeks.</p>
+        <ul class="ch__list"><li>Full-day and elopement coverage</li><li>Second photographer as standard</li><li>Heirloom album on request</li></ul>
+      </div>
+      <figure class="ph ch__big" data-speed="-.1"><img src="media/cw1.webp" alt="A couple embracing in the woods, the groom in a pale blue suit" width="1067" height="1600" loading="lazy"></figure>
+      <figure class="ph ch__small" data-speed=".22"><img src="media/cw2.webp" alt="A bride holding a single white rose beside her partner" width="1067" height="1600" loading="lazy"></figure>
+    </article>
+
+    <article class="ch ch--b" data-frame="Portraits">
+      <div class="ch__txt">
+        <span class="ch__n mono">(02)</span>
+        <h3 class="d-lg">Portraits</h3>
+        <p>Individuals, families and teams. Natural light or a lit set in our studio, and you leave with a portrait that looks like you on a good day.</p>
+        <ul class="ch__list"><li>Personal and editorial sessions</li><li>Team headshots on location</li><li>Retouching kept honest</li></ul>
+      </div>
+      <figure class="ph ch__big" data-speed="-.12"><img src="media/h2.webp" alt="A young woman with short auburn hair against a blue-grey backdrop" width="1067" height="1600" loading="lazy"></figure>
+      <figure class="ph ch__small" data-speed=".18"><img src="media/cp1.webp" alt="A black and white portrait of a freckled woman" width="1600" height="1248" loading="lazy"></figure>
+    </article>
+
+    <article class="ch ch--a" data-frame="Commercial">
+      <div class="ch__txt">
+        <span class="ch__n mono">(03)</span>
+        <h3 class="d-lg">Commercial</h3>
+        <p>Products, interiors and campaigns. Clean light and consistent sets for brands that need a library they can use for a year, not a single image.</p>
+        <ul class="ch__list"><li>Product and still life</li><li>Interiors and hospitality</li><li>Campaign and lookbook days</li></ul>
+      </div>
+      <figure class="ph ch__big" data-speed="-.08"><img src="media/cc2.webp" alt="A white arched corridor with afternoon light on the floor" width="1067" height="1600" loading="lazy"></figure>
+      <figure class="ph ch__small" data-speed=".24"><img src="media/cc1.webp" alt="White ceramic cups and a bottle on a white table" width="1600" height="1200" loading="lazy"></figure>
+    </article>
+
+    <article class="ch ch--b" data-frame="Events">
+      <div class="ch__txt">
+        <span class="ch__n mono">(04)</span>
+        <h3 class="d-lg">Events</h3>
+        <p>Launches, festivals and dinners. Wide and close coverage, a runner on site, and the first selects in your inbox the same night.</p>
+        <ul class="ch__list"><li>Festivals and live music</li><li>Brand launches and dinners</li><li>Same-night selects</li></ul>
+      </div>
+      <figure class="ph ch__big" data-speed="-.1"><img src="media/ce1.webp" alt="A stage glowing orange over a dense crowd" width="1600" height="1067" loading="lazy"></figure>
+      <figure class="ph ch__small" data-speed=".2"><img src="media/ce2.webp" alt="Hands raised under violet stage lights" width="1600" height="1200" loading="lazy"></figure>
+    </article>
+  </section>
+
+  <!-- FR 07 · selected work: frames scattered around a held title. A frame opens full screen, then the shoot runs sideways -->
+  <section class="wk" id="work" data-frame="Selected work" aria-labelledby="h-wk">
+    <div class="wk__title">
+      <h2 id="h-wk" class="d-xl">Selected<br>work <sup class="mono">(05)</sup></h2>
+      <p>Open a frame. Scroll to walk through the shoot.</p>
+    </div>
+    <div class="wk__field" id="wkField"></div>
+  </section>
+
+  <!-- FR 08 · who we shoot for: the darkroom. Each client is a print that develops in the tray as you scroll, then is pulled for the next -->
+  <section class="cl" data-frame="Clients" aria-labelledby="h-cl">
+    <div class="dk" id="dk">
+      <div class="dk__stage">
+        <div class="dk__head">
+          <span class="ch__n mono">(06)</span>
+          <h2 id="h-cl" class="d-lg">Shot for</h2>
+          <p>Hotels, makers, festivals and couples who come back for the next chapter. Most of our work arrives by recommendation.</p>
+        </div>
+        <ol class="dk__tray" aria-label="Clients">
+          <li class="dk__sheet"><span class="dk__img"><img src="media/w3b.webp" alt="Orlo Hotels interior" decoding="async"></span><span class="dk__cap"><span class="lg lg--orlo">Orlo<small>Hotels</small></span><span class="mono">Print 01 · Interiors</span></span></li>
+          <li class="dk__sheet"><span class="dk__img"><img src="media/w4b.webp" alt="Kessa ceramics" decoding="async"></span><span class="dk__cap"><span class="lg lg--kessa">Kessa</span><span class="mono">Print 02 · Product</span></span></li>
+          <li class="dk__sheet"><span class="dk__img"><img src="media/w5b.webp" alt="Brightwater festival crowd" decoding="async"></span><span class="dk__cap"><span class="lg lg--bright">Bright<br>water</span><span class="mono">Print 03 · Festival</span></span></li>
+          <li class="dk__sheet"><span class="dk__img"><img src="media/cl4.webp" alt="Maison Ardelle campaign portrait" decoding="async"></span><span class="dk__cap"><span class="lg lg--ardelle">Maison<br>Ardelle</span><span class="mono">Print 04 · Campaign</span></span></li>
+          <li class="dk__sheet"><span class="dk__img"><img src="media/cl5.webp" alt="Velm watch on a mirror" decoding="async"></span><span class="dk__cap"><span class="lg lg--velm">Velm</span><span class="mono">Print 05 · Watches</span></span></li>
+          <li class="dk__sheet"><span class="dk__img"><img src="media/cl6.webp" alt="Northcote &amp; Hale dinner" decoding="async"></span><span class="dk__cap"><span class="lg lg--hale">Northcote<i>&amp;</i>Hale</span><span class="mono">Print 06 · Events</span></span></li>
+        </ol>
+        <div class="dk__side">
+          <p class="dk__count mono"><b id="dkN">01</b> / 06</p>
+          <p class="dk__name" id="dkName">Orlo Hotels</p>
+          <p class="dk__kind mono" id="dkKind">Interiors</p>
+          <button type="button" class="cl__go" id="dkGo">See the shoot<i aria-hidden="true">→</i></button>
+          <div class="dk__timer mono" aria-hidden="true"><span>Developing</span><i id="dkBar"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FR 09 · knowledge: what we tell every client before the shoot -->
+  <section class="fn" id="journal" data-frame="Field notes" aria-labelledby="h-fn">
+    <header class="fn__head">
+      <p class="eyebrow">Field notes</p>
+      <h2 id="h-fn" class="d-md">What we tell every client before the shoot.</h2>
+    </header>
+    <div class="fn__grid">
+      <article class="fn__card">
+        <span class="mono">Portraits · 4 min</span>
+        <h3>What to wear to a portrait session</h3>
+        <p>Solid mid-tones, textures over logos, and one layer you can take off. Bring two options; we'll choose against the backdrop.</p>
+      </article>
+      <article class="fn__card">
+        <span class="mono">Weddings · 6 min</span>
+        <h3>Plan the day around the light, not the clock</h3>
+        <p>Where the sun sits at four o'clock decides more than the venue. Build the timeline backwards from golden hour.</p>
+      </article>
+      <article class="fn__card">
+        <span class="mono">Commercial · 5 min</span>
+        <h3>Brief a product shoot on one page</h3>
+        <p>Channels, crops, the three hero angles and what must never change. One page saves a reshoot.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FR 10 · book: the last frame on the roll -->
+  <section class="bk" id="book" data-frame="Book a date" aria-labelledby="h-bk">
+    <figure class="bk__ph ph" data-speed="-.1"><img src="media/cta.webp" alt="A couple in a doorway, laughing" width="1600" height="1067" loading="lazy"></figure>
+    <div class="bk__in">
+      <p class="eyebrow eyebrow--lt">Booking 2026–27</p>
+      <h2 id="h-bk" class="d-xl">Tell us<br>the date.</h2>
+      <form class="bk__form" id="bkForm" novalidate>
+        <label><span>Date</span><input type="date" name="date" required></label>
+        <label><span>Kind of shoot</span>
+          <select name="kind"><option>Wedding</option><option>Portrait</option><option>Commercial</option><option>Event</option></select></label>
+        <button class="btn btn--paper" type="submit"><span>Check the date</span></button>
+        <p class="bk__msg" id="bkMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="ft" data-frame="End of roll">
+    <div class="ft__grid">
+      <p class="ft__lead">Tell us the date.<br><em>We'll keep the light.</em></p>
+      <nav class="ft__col ft__col--a" aria-label="Footer"><h3 class="mono">Pages</h3><a href="#work" data-go="work">Work</a><a href="#services" data-go="services">Services</a><a href="#journal" data-go="journal">Field notes</a></nav>
+      <div class="ft__col ft__col--b"><h3 class="mono">Enquiries</h3><a href="#book" data-go="book">Book a date</a><span>Replies within two working days</span><span>Studio visits by appointment</span></div>
+    </div>
+    <p class="ft__base mono"><span>© 2026 Capture</span><span>Weddings · Portraits · Commercial · Events</span></p>
+  </footer>
+</div>
+</main>
+
+<!-- the opened frame: vertical scroll drives the shoot sideways -->
+<div class="dv" id="dv" hidden data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="dvT">
+  <div class="dv__bar">
+    <p class="dv__crumb mono"><span id="dvIdx">01</span> / 05 · <span id="dvKind"></span></p>
+    <button class="dv__x" id="dvX" type="button"><span>Close</span><i aria-hidden="true"></i></button>
+  </div>
+  <div class="dv__scroll" id="dvScroll">
+    <div class="dv__stage"><div class="dv__track" id="dvTrack"></div></div>
+  </div>
+  <div class="dv__prog" aria-hidden="true"><i id="dvBar"></i><span class="mono" id="dvHint">Scroll</span></div>
+</div>
+
+<div class="cur" id="cur" aria-hidden="true"><span>Open</span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

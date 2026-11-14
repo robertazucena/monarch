@@ -59,6 +59,22 @@
         ["Plant", "Chiller-plant readings and every air handler per building, with a 24-hour efficiency trend."],
         ["Dispatch", "Drag a call onto a crew, or take one of three suggested slots; skills, clashes and travel between regions are checked."],
         ["Reports", "Every report traced back to the reading or call that started it, and filed straight from the crew’s checklist."]] },
+    capture: { name: "Capture", field: "Web design · Photography studio", status: "Concept · 2026",
+      title: "A photography studio website that behaves like a camera: a shutter between pages, shoots that run sideways, clients shown as prints.",
+      caps: ["Brand", "Web design", "Motion design", "Prototype"],
+      pages: [["Home", "index.html"], ["Work", "index.html#work"], ["Services", "index.html#services"], ["Field notes", "index.html#journal"], ["Book a date", "index.html#book"], ["A shoot", "index.html#p-quiet-hours"]],
+      overview: "Capture is a concept studio that photographs weddings, portraits, brands and events. Most photography sites are a grid of thumbnails and a contact form. This one treats the site as the camera: a shutter opens every page, photographs develop in from over-exposed as they arrive, and opening a shoot fills the screen, then runs sideways through its frames, brief and facts before growing into the next shoot. Clients appear as prints that develop in a darkroom tray as you scroll. Client names and photographs are illustrative.",
+      story: ["Photography sites tend to show the pictures and nothing else, so a couple or a brand can’t tell how the studio works or what the day will feel like.",
+        "People book a photographer for <em>how they work</em> as much as for the pictures.",
+        "Let each shoot tell its story frame by frame, with the brief and the facts, and make the site itself behave like a camera."],
+      steps: [["Research", "Studied editorial photography sites and the two motion references in the brief: a collage that scrolls with highlighted text, and a photo that opens and pins."],
+        ["Direction", "Navy and grey, Bodoni for display and Geist for reading, and camera behaviour as the motion language: shutter, develop, focus, darkroom."],
+        ["Brand", "A wordmark signed in a monoline script, as if written on the back of a print."],
+        ["Build", "One static page that opens from a file, with a shutter on every route, a sideways reel for each shoot and a scroll-driven darkroom."]],
+      built: [["Shutter between pages", "The same loader opens the site and every route: a slit of light, then the leaves part."],
+        ["Shoots that run sideways", "A frame opens full screen, scrolls sideways through its photos and notes, then grows into the next shoot."],
+        ["Clients as prints", "Each client develops as a print in a darkroom tray, and the ones with a shoot open it."],
+        ["Words that focus", "The studio statement comes into focus word by word, with its subjects printed on a navy bar."]] },
     dost: { name: "DOST Philippines", field: "Web design · Government, Philippines", status: "Concept · 2026",
       title: "A science department website that answers what DOST can do for you, built on the DFA template.",
       caps: ["Information architecture", "Web design", "Content design", "Prototype"],
@@ -142,11 +158,11 @@
   };
   /* the four approach steps, Monarch's phases */
   /* the four screens under the prototype (indexes into pages; the prototype opens on page 0) */
-  const FOUR = { dost: [1, 2, 3, 4], sentron: [1, 2, 3, 5], deped: [1, 2, 3, 4], howely: [1, 2, 3, 4], dfa: [1, 2, 3, 5], nowhere: [1, 2, 5, 6], courtly: [1, 2, 3, 4], steady: [1, 2, 3, 4] };
+  const FOUR = { capture: [1, 2, 4, 5], dost: [1, 2, 3, 4], sentron: [1, 2, 3, 5], deped: [1, 2, 3, 4], howely: [1, 2, 3, 4], dfa: [1, 2, 3, 5], nowhere: [1, 2, 5, 6], courtly: [1, 2, 3, 4], steady: [1, 2, 3, 4] };
   const PHASE = ["Frame", "Find", "Form", "Field"], STORY = ["Challenge", "Insight", "Solution"];
   const img = (f, w, h, alt) => `<img src="work/${f}" width="${w}" height="${h}" alt="${alt}" loading="lazy" decoding="async">`;
   /* service → projects (a project can sit in more than one); order: Strategy, Experience, Intelligence, Knowledge, Automation, Creative */
-  const BY = [["nowhere"], ["dost", "sentron", "deped", "howely", "dfa", "courtly", "steady"], ["dost", "sentron", "steady", "nowhere"], ["dost", "nowhere"], ["courtly"], ["howely", "steady", "nowhere"]];
+  const BY = [["nowhere"], ["capture", "dost", "sentron", "deped", "howely", "dfa", "courtly", "steady"], ["dost", "sentron", "steady", "nowhere"], ["capture", "dost", "nowhere"], ["courtly"], ["capture", "howely", "steady", "nowhere"]];
 
   const root = document.documentElement, work = document.getElementById("work");
   if (!work) return;
@@ -212,7 +228,7 @@
     </article>`;
   };
   /* the service page shows its projects as blocks; a block opens that project */
-  const CARD = { dost: ["dost-0", 0, "DOST Philippines home page"], sentron: ["sentron-0", 0, "Sentron Ops overview with delivery metrics and live charts"], deped: ["deped-0", 0, "DepEd Philippines home page"], howely: ["howely-0", 0, "Howely home page"], dfa: ["dfa-0", 0, "DFA Philippines home page"], nowhere: ["nowhere-0", 0, "Nowhere landing page"], courtly: ["courtly-phones", 1, "Courtly app screens on three phones"], steady: ["steady-phones", 1, "Steady app screens on three phones"] };
+  const CARD = { capture: ["capture-0", 0, "Capture photography studio home page"], dost: ["dost-0", 0, "DOST Philippines home page"], sentron: ["sentron-0", 0, "Sentron Ops overview with delivery metrics and live charts"], deped: ["deped-0", 0, "DepEd Philippines home page"], howely: ["howely-0", 0, "Howely home page"], dfa: ["dfa-0", 0, "DFA Philippines home page"], nowhere: ["nowhere-0", 0, "Nowhere landing page"], courtly: ["courtly-phones", 1, "Courtly app screens on three phones"], steady: ["steady-phones", 1, "Steady app screens on three phones"] };
   const cardHTML = (id, j) => {
     const d = S[id], c = CARD[id];
     const media = c[1] ? `<span class="w-shot phones">${img(c[0] + ".webp", 1200, 750, c[2])}</span>`
