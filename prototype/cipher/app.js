@@ -218,7 +218,7 @@
   const select = (i, show) => {
     sel = i;
     WHEELS.forEach(w => w.select(i));
-    railMark.style.top = (i * 25) + "px";
+    railMark.style.transform = "translateY(" + (i * 25) + "px)";
     railA.textContent = pad(i + 1);
     if (show) card("division");
   };
