@@ -4,18 +4,18 @@
    category opens on that photo: the service name, its line, an index, then each project.
    The tabs, or "Next service" at the end, switch category with a crossfade; Back, the X, Escape or the browser's
    Back button zoom out into the word again, on whichever service was open.
-   Projects: HELIO ENERGY, Cipher, Sentron Ops, DepEd Philippines, Howely, DFA Philippines, Nowhere, Courtly and Steady, written as Monarch studies (overview, challenge / insight / solution, the
+   Projects: Helio Energy, Cipher, Sentron Ops, DepEd Philippines, Howely, DFA Philippines, Nowhere, Courtly and Steady, written as Monarch studies (overview, challenge / insight / solution, the
    four-phase approach, what we built). A project opens in two columns: its live HTML prototype
    (prototype/<id>/) on the left with four more screens (work/<id>-n.webp) below it, and the study on the right in its
    own scroll; picking a screen loads that page in the prototype. */
 (() => {
   "use strict";
   const S = {
-    "helion-energy": { name: "HELIO ENERGY", field: "Web design · Solar energy, Philippines", status: "Concept · 2026",
+    "helion-energy": { name: "Helio Energy", field: "Web design · Solar energy, Philippines", status: "Concept · 2026",
       title: "A solar website that follows one day of sunlight, from the panel on the roof to the peso saved.",
       caps: ["Brand refresh", "Web design", "3D illustration", "Interactive tools", "Prototype"],
       pages: [["Home", "index.html"], ["Solutions", "index.html#solutions"], ["About", "index.html#about"], ["Projects", "index.html#projects"], ["Calculator", "index.html#calculator"], ["Contact", "index.html#contact"]],
-      overview: "HELIO ENERGY designs and installs solar for homes, businesses, factories and farms across the Philippines. This concept rebuilds its website around the day a solar system actually lives: a sunrise-to-sunset walk through the five steps of a project, a 3D model that shows where the power goes for each solution, a roof you peel back to see it producing, and a savings calculator that turns a monthly bill into a system size, a cost range and a payback year. Every page opens on the same panel-cell preloader and sits in one green mesh, from the hero video to the footer.",
+      overview: "Helio Energy designs and installs solar for homes, businesses, factories and farms across the Philippines. This concept rebuilds its website around the day a solar system actually lives: a sunrise-to-sunset walk through the five steps of a project, a 3D model that shows where the power goes for each solution, a roof you peel back to see it producing, and a savings calculator that turns a monthly bill into a system size, a cost range and a payback year. Every page opens on the same panel-cell preloader and sits in one green mesh, from the hero video to the footer.",
       story: ["Solar sites lead with panels and percentages, so a family or a plant manager can’t picture what the system would do for their own roof, bill and evening.",
         "People don’t buy panels. They buy <em>a lower bill and power that stays on</em>.",
         "Show the energy moving, let visitors put in their own bill, and keep every step from survey to switch-on in plain sight."],
@@ -260,7 +260,7 @@
     </article>`;
   };
   /* the service page shows its projects as blocks; a block opens that project */
-  const CARD = { "helion-energy": ["helion-energy-0", 0, "HELIO ENERGY solar website home page"], cipher: ["cipher-0", 0, "Cipher AI control room with its decoder wheel"], capture: ["capture-0", 0, "Capture photography studio home page"], dost: ["dost-0", 0, "DOST Philippines home page"], sentron: ["sentron-0", 0, "Sentron Ops overview with delivery metrics and live charts"], deped: ["deped-0", 0, "DepEd Philippines home page"], howely: ["howely-0", 0, "Howely home page"], dfa: ["dfa-0", 0, "DFA Philippines home page"], nowhere: ["nowhere-0", 0, "Nowhere landing page"], courtly: ["courtly-phones", 1, "Courtly app screens on three phones"], steady: ["steady-phones", 1, "Steady app screens on three phones"] };
+  const CARD = { "helion-energy": ["helion-energy-0", 0, "Helio Energy solar website home page"], cipher: ["cipher-0", 0, "Cipher AI control room with its decoder wheel"], capture: ["capture-0", 0, "Capture photography studio home page"], dost: ["dost-0", 0, "DOST Philippines home page"], sentron: ["sentron-0", 0, "Sentron Ops overview with delivery metrics and live charts"], deped: ["deped-0", 0, "DepEd Philippines home page"], howely: ["howely-0", 0, "Howely home page"], dfa: ["dfa-0", 0, "DFA Philippines home page"], nowhere: ["nowhere-0", 0, "Nowhere landing page"], courtly: ["courtly-phones", 1, "Courtly app screens on three phones"], steady: ["steady-phones", 1, "Steady app screens on three phones"] };
   const cardHTML = (id, j) => {
     const d = S[id], c = CARD[id];
     const media = c[1] ? `<span class="w-shot phones">${img(c[0] + ".webp", 1200, 750, c[2])}</span>`
